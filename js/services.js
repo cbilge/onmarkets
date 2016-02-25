@@ -1,8 +1,10 @@
 var onmServices = angular.module('onmServices', ['ngResource']);
 
-onmServices.factory('Feed', ['$resource',
-	function($resource) {
-		return $resource('https://s3.amazonaws.com/codecademy-content/courses/ltp4/photos-api/photos.json'), {}, {
-			query: {method:'GET', params:{}, isArray:true}
-		}	   
-	}]);
+onmServices.factory('Daily', ['$resource', function ($resource) {
+    var factory = {};
+
+    factory.getDaily = $resource('js/data/daily.txt', {}, {
+        'query': { method: 'GET', isArray: false }
+    });
+    return factory;
+} ]);
