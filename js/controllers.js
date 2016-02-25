@@ -1,16 +1,18 @@
 var onmControllers = angular.module('onmControllers', []);
 
-onmControllers.controller('HomeController', ['$scope', 'Daily', function ($scope, Daily) {
+onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', function ($scope, Daily, $http) {
     $scope.message = "Hello World";
-    $scope.get = function () {
-        $scope.items = Daily.ajaxItems();
-        //the model returns a promise and THEN items
-        $scope.items.then(function (items) {
-            $scope.items = items;
-        }, function (status) {
-            console.log(status);
-        });
-    };
+    $scope.daily = [];
+    init();
+    function init() {
+        $scope.daily = Daily.getDaily.query();
+        console.log($scope.items);
+    }
+
+    $scope.onColor = "#00B0F0";
+    $scope.calColor = "#F39C11";
+    $scope.emColor = "#C0392B";
+    $scope.newsColor = "#3498DB";
 } ]);
 
 onmControllers.controller('OnController', function($scope) {
