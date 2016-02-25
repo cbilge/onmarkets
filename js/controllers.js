@@ -1,6 +1,6 @@
 var onmControllers = angular.module('onmControllers', []);
 
-onmControllers.controller('HomeController',['$scope', 'Daily', function($scope, Daily) {
+onmControllers.controller('HomeController', ['$scope', 'Daily', function($scope, Daily) {
 	$scope.message = "Hello World";
     $scope.synopsis = Daily.query();
 }]);
