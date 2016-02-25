@@ -1,3 +1,13 @@
-<div class="main">
-	<h1>Hello World!</h1>
+<link href="css/on.css" rel="stylesheet">
+
+<div class="container-fluid">
+    <!-- Synopsis -->
+    <div class="panel panel-default">
+        <div style="background-color: {{onColor}}" class="panel-heading">
+	        <div class="panel-title">
+                <h2><span class="glyphicon glyphicon-globe"></span> Overnight Synopsis</h2>
+            </div>
+        </div>
+        <div class="panel-body textpanel">{{daily.synopsis}}</div>
+    </div>
 </div>

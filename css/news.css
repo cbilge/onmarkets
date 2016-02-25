@@ -1,0 +1,57 @@
+.entry span {
+	display: inline;
+	font-size: 1.5rem;
+	color: #3498DB;
+	align: right;
+}
+
+.entry p {
+	display:inline;
+	font-size: 1.6rem;
+	padding-left: 6px;
+}
+
+.entry span.active {
+	color: #ffffff !important;
+}
+.panel-heading {
+    padding: 10px 0px 8px 4px;
+}
+
+.panel-title {
+    font-size: 22px;
+    color: #FFF;
+}
+
+.panel-body {
+    padding: 0px;
+ }
+
+.textpanel {
+    padding: 5px 0px 2px 4px;
+}
+
+th, td {
+    text-align: center;
+}
+
+td:first-child, th:first-child  {
+    text-align: left;
+}
+
+.table {
+    border: none;
+    margin: 0px;
+}
+
+.joint {
+    padding: 0;  
+}
+
+.uptick {
+    color: #77e100;
+}
+
+.downtick {
+    color: #FF0000;
+}

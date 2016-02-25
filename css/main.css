@@ -17,25 +17,14 @@ h2, h3, h4, .navbar-brand {
     margin: 0px;
 }
 
+a {
+    text-decoration: none;
+    color: #00bfff;
+}
+
+
 .glyphicon {
 	font-size: 22px;
-}
-
-.entry span {
-	display: inline;
-	font-size: 1.5rem;
-	color: #3498DB;
-	align: right;
-}
-
-.entry p {
-	display:inline;
-	font-size: 1.6rem;
-	padding-left: 6px;
-}
-
-.entry span.active {
-	color: #ffffff !important;
 }
 
 .table-striped {
@@ -97,29 +86,4 @@ h2, h3, h4, .navbar-brand {
 
 a, a:hover {
 	text-decoration:none;
-}
-
-.panel-heading {
-    padding: 10px 0px 8px 4px;
-}
-
-.panel-title {
-    font-size: 22px;
-    color: #FFF;
-}
-
-.panel-body {
-    padding: 5px 0px 2px 4px;
- }
-
-.calendarTable th, .calendarTable td {
-    text-align: center;
-}
-
-.calendarTable tr td:first-child, .calendarTable tr th:first-child  {
-    text-align: left;
-}
-
-.calendarTable {
-    border: 0px !important;
 }
