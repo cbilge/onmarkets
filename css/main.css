@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Lato";
-    src: url(css/fonts/Lato-Regular.tff) format('truetype');
+    src: url("fonts/Lato-Regular.ttf") format('truetype');
 }
 
 body {
