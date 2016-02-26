@@ -13,6 +13,31 @@
 .entry span.active {
 	color: #ffffff !important;
 }
+
+.entry li.active {
+     background-color: #3498DB;
+}
+
+.panel-body {
+    height: 800px;
+}
+
+.reader-wrap {
+    height: 800px;
+    overflow-y: scroll;
+}
+
+h2.reader {
+    text-align: left;
+    padding: inherit;
+    color: #000 !important;
+}
+
+.list-group {
+    margin-bottom: 0px !important;
+    border: none !important;
+}
+
 .panel-heading {
     padding: 10px 0px 8px 4px;
 }
@@ -30,27 +55,7 @@
     padding: 5px 0px 2px 4px;
 }
 
-th, td {
-    text-align: center;
-}
-
-td:first-child, th:first-child  {
-    text-align: left;
-}
-
-.table {
-    border: none;
-    margin: 0px;
-}
 
 .joint {
     padding: 0;  
-}
-
-.uptick {
-    color: #77e100;
-}
-
-.downtick {
-    color: #FF0000;
 }

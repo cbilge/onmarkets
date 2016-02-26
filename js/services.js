@@ -9,12 +9,22 @@ onmServices.factory('Daily', ['$resource', function ($resource) {
 } ]);
 
 onmServices.factory('BBG', ['$resource', function ($resource) {
-    var factory = {};
-    var bbgUrl = "http://www.bloomberg.com/quote/";
-    factory.getLast = $resource("http://www.bloomberg.com/quote/:ticker", { ticker: '@ticker' });
-    return factory;
+    return $resource("/js/data/bbg_last.php", { ticker: '@ticker' });
 } ]);
 
 onmServices.factory('bbgRss', ['$resource', function ($resource) {
     return $resource("/js/data/bbg_rss.php", {});
+} ]);
+
+onmServices.factory('DailyTest', ['$resource', function ($resource) {
+    return $resource("/js/data/dailytest.php");
+} ]);
+
+
+onmServices.factory('Readability', ['$resource', function ($resource) {
+    return $resource("/js/data/readability.php?url=@url", {url:'@url'});
+} ]);
+
+onmServices.factory('Proxy', ['$resource', function ($resource) {
+    return $resource("/old/ba-simple-proxy.php?url=@url", {url:'@url'});
 } ]);

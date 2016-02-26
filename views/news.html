@@ -13,11 +13,17 @@
 			<div class="container-fluid" style="padding-left: 0; padding-top: 0;">
 				<div class="row">
 					<div class="col-md-5">
-					<ul id="newslist" class="list-group" ng-repeat="item in feed.channel.item">
-						<li class="list-group-item entry"><span class="entry-link glyphicon-chevron-right"></span><p class="entry-title">{{item.title}}</p></li>
+					<ul id="newslist" class="list-group">
+						<li class="list-group-item entry" ng-repeat="item in feed.channel.item" ng-click="selectItem(item)" ng-class="{'active' : item.link==activeLink}"><span class="glyphicon glyphicon-chevron-right"></span><p class="entry-title">{{item.title}}</p></li>
 					</ul>
 					</div>
-					<div id="newsreturn" class="col-md-7"></div>
+					<div class="col-md-7 reader-wrap">
+                        <div class="reader">
+                            <h2>{{activeText.contents.title}}</h2>
+                            <p ng-bind-html="activeText.contents.content"></p>
+                            <a class="original" ng-href="activeText.contents.link" ng-show="activeText">View Original</a>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>
