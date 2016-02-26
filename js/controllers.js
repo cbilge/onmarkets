@@ -4,7 +4,7 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
     $scope.daily = [];
     init();
     function init() {
-        $scope.daily = Daily.getDaily.query();
+        $scope.daily = Daily.getDaily.get();
         console.log($scope.items);
     }
 
@@ -67,10 +67,19 @@ onmControllers.controller('CalController', function($scope) {
     $scope.calColor = "#F39C11";
 });
 
-onmControllers.controller('EmController', function($scope) {
+onmControllers.controller('EmController',['$scope','BBG', function($scope, BBG) {
     $scope.emColor = "#C0392B";
-});
 
-onmControllers.controller('NewsController', ['$scope', function($scope) {
-	 $scope.newsColor = "#3498DB";
+    $scope.getLast = function(ticker){
+        $scope.last = BBG.getLast.get({ticker:"TRY:CUR"});
+        console.log($scope.last);        
+    }
+
 }]);
+
+onmControllers.controller('NewsController', ['$scope', 'bbgRss', function ($scope, bbgRss) {
+    $scope.newsColor = "#3498DB";
+
+    $scope.feed = bbgRss.get();
+    console.log($scope.feed);
+} ]);
