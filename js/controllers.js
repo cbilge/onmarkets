@@ -39,7 +39,7 @@ onmControllers.controller('OnController', function ($scope, $http) {
         var req = {
             method: 'POST',
             url: '/js/data/dailytest.php',
-            data: { ver: 'cbilge', data: "yo" }
+            data: { 'ver': 'cbilge', 'data': 'yo' }
         };
         $http(req).then(function (data) {
             console.log("success");
