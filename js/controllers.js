@@ -5,7 +5,6 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
     init();
     function init() {
         $scope.daily = Daily.getDaily.get();
-        console.log($scope.items);
     }
 
     $scope.onColor = "#00B0F0";
@@ -42,7 +41,7 @@ onmControllers.controller('OnController', function ($scope, $http) {
             data: { 'ver': 'cbilge', 'data': 'yo' }
         };
         $http(req).then(function (data) {
-            console.log("success");
+            console.log(data);
         }, function (data) {
             console.log("error");
         });
