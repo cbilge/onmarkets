@@ -15,12 +15,18 @@
     padding: 5px 0px 2px 4px;
 }
 
+th {
+    background-color: #d0d0d0;
+}
+
 th, td {
     text-align: center;
+    width: 20%;
 }
 
 td:first-child, th:first-child  {
     text-align: left;
+    width: 40%;
 }
 
 .table {

@@ -25,13 +25,6 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
         }
     }
 
-    $scope.dateFix = function (dt) {
-        console.log(dt);
-
-        var d = Date.parse(dt);
-        return d;
-    }
-
     $scope.timeFix = function (time) {
         var d = new Date(time * 86400000);
         return d;
@@ -39,8 +32,35 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
 
 } ]);
 
-onmControllers.controller('OnController', function($scope) {
-   $scope.onColor = "#00B0F0";
+onmControllers.controller('OnController', function ($scope, $http) {
+    $scope.onColor = "#00B0F0";
+    $scope.getResp = "";
+    $scope.testPost = function () {
+        var req = {
+            method: 'POST',
+            url: '/js/data/dailytest.php',
+            data: { ver: 'cbilge', data: "yo" }
+        };
+        $http(req).then(function (data) {
+            console.log("success");
+        }, function (data) {
+            console.log("error");
+        });
+    }
+    $scope.testGet = function () {
+        var req = {
+            method: 'GET',
+            url: '/js/data/dailytest.php'
+        };
+        $http(req).then(function (data) {
+            $scope.getResp = data;
+            console.log("success");
+        }, function (data) {
+            $scope.getResp = data;
+            console.log("error");
+        });
+    }
+
 });
 
 onmControllers.controller('CalController', function($scope) {
