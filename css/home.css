@@ -25,7 +25,6 @@ th, td {
 
 td:first-child, th:first-child  {
     text-align: left;
-
 }
 
 .emTable td:first-child, th:first-child {
@@ -44,7 +43,16 @@ td:first-child, th:first-child  {
      width: 10%;   
 }
 
-.table {
+.calendarTable td:first-child, .calendarTable th:first-child {
+    width: 28%;    
+}
+
+.calendarTable th, .calendarTable td {
+     width: 12%;   
+}
+
+
+.table, .table-responsive {
     border: none;
     margin: 0px;
 }

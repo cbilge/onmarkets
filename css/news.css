@@ -27,7 +27,7 @@
     overflow-y: scroll;
 }
 
-.reader h2{
+.reader h2, h3, h4{
     text-align: left;
     padding: 5px 0 5px 0;
 }
@@ -64,4 +64,35 @@
     margin: 0;
     color: #ffffff;
     vertical-align: middle;
+}
+
+.original {
+    padding: 12px 30px 12px 30px;
+    border: 1px solid #3498DB;
+    color: #3498DB;
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+.original:hover {
+    color: #FFF;
+    background-color: #3498DB;
+}
+
+#full-reader {
+    z-index: 9999;
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.readBtn {
+    position: fixed;
+    top: 6px;
+    right: 10px;
 }

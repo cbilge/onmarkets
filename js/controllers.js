@@ -61,7 +61,7 @@ onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, f
     console.log($scope.data);
 } ]);
 
-onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability',  function ($scope, bbgRss, Readability) {
+onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', '$window', function ($scope, bbgRss, Readability, $window) {
     $scope.selected = 4;
     $scope.themeColor = "#3498DB";
 
@@ -73,7 +73,17 @@ onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', 
 
     $scope.selectItem = function (item) {
         $scope.activeLink = item.link;
-        $scope.activeText = Readability.get({url:item.link});
+        console.log(item);
+        $scope.activeText = Readability.get({ url: item.link });
+        if ($window.innerWidth < 992) {
+            $scope.fullRead = true;
+            $scope.readerHeight = $window.innerHeight - 50;
+        }
+    }
+
+    $scope.hideRead = function () {
+        $scope.fullRead = false;
+        $scope.activeLink = "";
     }
 
 } ]);
