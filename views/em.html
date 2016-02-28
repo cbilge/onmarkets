@@ -14,14 +14,10 @@
                         <tr>
                             <th>Name</th>
                             <th>Last</th>
-                            <th>1D Change</th>
-                            <th>5D Change</th>
                         </tr>
-                        <tr ng-repeat="data in daily.markets.slice(0,9)">
-                            <td>{{data.name}}</td>
-                            <td>{{data.last}}</td>
-                            <td class="{{getColor(data.d1c)}}">{{data.d1 | number : 2}}</td>
-                            <td style="{{getColor(data.d5c)}}">{{data.d5 | number : 2}}</td>
+                        <tr ng-repeat="rate in data.Rate.slice(0,31)">
+                            <td>{{rate['@attributes'].Symbol}}</td>
+                            <td>{{rate.Bid | number : rate.Bid>20 ? 2 : 4}}</td>
                         </tr>
                     </table>
                 </div>
@@ -30,14 +26,10 @@
                         <tr>
                             <th>Name</th>
                             <th>Last</th>
-                            <th>1D Change</th>
-                            <th>5D Change</th>
                         </tr>
-                        <tr ng-repeat="data in daily.markets.slice(9,18)">
-                            <td>{{data.name}}</td>
-                            <td>{{data.last}}</td>
-                            <td class="{{getColor(data.d1c)}}">{{data.d1 | number : 2}}</td>
-                            <td style="{{getColor(data.d5c)}}">{{data.d5 | number : 2}}</td>
+                        <tr ng-repeat="rate in data.Rate.slice(31,62)">
+                            <td>{{rate['@attributes'].Symbol}}</td>
+                            <td>{{rate.Bid | number : rate.Bid>20 ? 2 : 4}}</td>
                         </tr>
                     </table>
                 </div>
@@ -46,4 +38,4 @@
     </div>
 </div>
 
-<button ng-click="getLast('TRY:CUR')">Test</button><div>{{last}}</div>
+<div>{{data.Rate[0].Ask}}</div>

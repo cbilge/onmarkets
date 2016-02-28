@@ -27,10 +27,9 @@
     overflow-y: scroll;
 }
 
-h2.reader {
+.reader h2{
     text-align: left;
-    padding: inherit;
-    color: #000 !important;
+    padding: 5px 0 5px 0;
 }
 
 .list-group {
@@ -58,4 +57,11 @@ h2.reader {
 
 .joint {
     padding: 0;  
+}
+
+.header {
+    height: 30px;
+    margin: 0;
+    color: #ffffff;
+    vertical-align: middle;
 }

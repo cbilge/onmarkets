@@ -28,3 +28,7 @@ onmServices.factory('Readability', ['$resource', function ($resource) {
 onmServices.factory('Proxy', ['$resource', function ($resource) {
     return $resource("/old/ba-simple-proxy.php?url=@url", {url:'@url'});
 } ]);
+
+onmServices.factory('FXCM', ['$resource', function ($resource) {
+    return $resource("/js/data/fxcm.php", {});
+} ]);

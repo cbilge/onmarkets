@@ -74,14 +74,12 @@ onmControllers.controller('CalController', function($scope) {
     $scope.calColor = "#F39C11";
 });
 
-onmControllers.controller('EmController',['$scope','BBG', function($scope, BBG) {
+onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, fxcm) {
     $scope.emColor = "#C0392B";
 
-    $scope.getLast = function(ticker){
-        $scope.last = BBG.get({ticker:"TRY:CUR"});       
-    }
-
-}]);
+    $scope.data = fxcm.get();
+    console.log($scope.data);
+} ]);
 
 onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability',  function ($scope, bbgRss, Readability) {
     $scope.newsColor = "#3498DB";

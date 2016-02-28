@@ -21,12 +21,27 @@ th {
 
 th, td {
     text-align: center;
-    width: 20%;
 }
 
 td:first-child, th:first-child  {
     text-align: left;
-    width: 40%;
+
+}
+
+.emTable td:first-child, th:first-child {
+    width: 40%;    
+}
+
+.emTable th, td {
+     width: 20%;   
+}
+
+.newsTable td:first-child, .newsTable th:first-child {
+    width: 70%;    
+}
+
+.newsTable th, .newsTable td {
+     width: 10%;   
 }
 
 .table {
