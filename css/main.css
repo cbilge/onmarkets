@@ -3,6 +3,11 @@
     src: url("fonts/Lato-Regular.ttf") format('truetype');
 }
 
+@font-face {
+    font-family: "Orbitron";
+    src: url("fonts/Orbitron-medium.otf") format('opentype');
+}
+
 body {
 	background-color: #FFF;
 	font-family: Lato, Arial, sans-serif;
@@ -14,13 +19,19 @@ h2, h3, h4, .navbar-brand {
 	letter-spacing: 1px;
 	font-size: 22px;
     margin: 0px;
+    vertical-align: middle;
 }
 
-a {
-    text-decoration: none;
-    color: #00bfff;
+.nav-pills {
+    border-bottom: none;
+    height: 50px;
+    border-color: #FFF;
+    vertical-align: middle;
 }
 
+.nav-pills li {
+    border-radius: 4px;
+}
 
 .glyphicon {
 	font-size: 22px;
@@ -38,35 +49,33 @@ a {
 .navbar {
 	background-color: #34495e;
 	font-size: 16px !important;
-	line-height: 1.43em !important;
 	z-index: 9999;
-    margin: 0 !important;
+    border: 0;
+    border-bottom: 5px solid;
+    height: 50px;
 }
+
 
 .navbar .glyphicon {
 	height: 20px;
 }
 
-.navbar button {
-        margin: 0 !important;
-}
-
 .navbar li a, .navbar .navbar-brand {
 	color: #fff !important;
-    
 }
 
 .icon-bar{
 	background-color:#fff !important;
 }
 
-#newsreturn a {
-	color: #00bfff;
-	font-size: 1.6rem !important;
+a, a:hover {
+	text-decoration:none;
+    color: #00bfff;
 }
 
-#newsreturn p {
-	font-size: 1.6rem !important;
+#title{
+    font-family: Orbitron, Arial, sans-serif;
+    color: #FFF !important;
 }
 
 #onli a:hover {
@@ -87,8 +96,4 @@ a {
 #newsli a:hover{
 	background-color: #3498DB;
 	color: #FFF;
-}
-
-a, a:hover {
-	text-decoration:none;
 }

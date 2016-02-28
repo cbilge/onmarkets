@@ -7,6 +7,9 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
         $scope.daily = Daily.getDaily.get();
     }
 
+    $scope.selected = 0;
+    $scope.themeColor = "#34495e";
+
     $scope.onColor = "#00B0F0";
     $scope.calColor = "#F39C11";
     $scope.emColor = "#C0392B";
@@ -32,58 +35,38 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
 } ]);
 
 onmControllers.controller('OnController', ['$scope', 'DailyTest', function ($scope, DailyTest) {
-    $scope.onColor = "#00B0F0";
-
+    $scope.selected = 1;
+    $scope.themeColor = "#00B0F0";
     $scope.testPost = function () {
         console.log(DailyTest.save({ "ver": "cbilge", "data": "yo" }));
     }
     $scope.testGet = function() {
         console.log(DailyTest.get());
     }
-    /*
-    $scope.testPost = function () {
-    var req = {
-    method: 'POST',
-    url: '/js/data/dailytest.php',
-    data: "ver=cbilge&data=yo" 
-    };
-    $http(req).then(function (data) {
-    console.log(data);
-    }, function (data) {
-    console.log("error");
-    });
-    }
-    $scope.testGet = function () {
-    var req = {
-    method: 'GET',
-    url: '/js/data/dailytest.php'
-    };
-    $http(req).then(function (data) {
-    $scope.getResp = data;
-    console.log("success");
-    }, function (data) {
-    $scope.getResp = data;
-    console.log("error");
-    });
-    }*/
 
 
 } ]);
 
 onmControllers.controller('CalController', function($scope) {
-    $scope.calColor = "#F39C11";
+    $scope.selected = 2;
+    $scope.themeColor = "#F39C11";
+    $scope.title = "Calendar";
 });
 
 onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, fxcm) {
-    $scope.emColor = "#C0392B";
-
+    $scope.selected = 3;
+    $scope.themeColor = "#C0392B";
+    $scope.title = "Markets";
     $scope.data = fxcm.get();
     console.log($scope.data);
 } ]);
 
 onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability',  function ($scope, bbgRss, Readability) {
-    $scope.newsColor = "#3498DB";
+    $scope.selected = 4;
+    $scope.themeColor = "#3498DB";
+
     $scope.activeText = "";
+    $scope.title = "News";
 
     $scope.feed = bbgRss.get();
     console.log($scope.feed);
