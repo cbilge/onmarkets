@@ -22,7 +22,7 @@ $tickers = Parse($fxcm);
 foreach($tickers as $ticker){
     $sym = $ticker['@attributes']['Symbol'];
     $last = $ticker['Bid'];
-    $put = '{' . $sym . ':' . $last . '}';
+    $put = '{' . $sym . ':' . $last . '}\n';
 
     file_put_contents(getenv('OPENSHIFT_REPO_DIR').'js/data/crontest.txt', $put, FILE_APPEND);
 }
