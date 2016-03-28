@@ -52,10 +52,9 @@ foreach($feed->channel->item as $item){
     echo $sel;
     $result = $conn->query($sel);
     echo $result->num_rows;
-    if ($result->num_rows = 0) {
+    if ($result->num_rows == 0) {
         $stmt->execute();  
     }
-
 }
 //title = "John";
 //$lastname = "Doe";
