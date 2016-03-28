@@ -40,11 +40,11 @@ $stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, link, pubDate) 
 $stmt->bind_param("ssss", $title, $description, $link, $pubDate);
 
 // set parameters and execute
-foreach($feed['item'] as $item){
-    $title = $item['title'];
-    $description = $item['description'];        
-    $link = $item['link'];
-    $pubDate = $item['pubDate'];
+foreach($feed->item as $item){
+    $title = $item->title;
+    $description = $item->description;        
+    $link = $item->link;
+    $pubDate = $item->pubDate;
     echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate . '\n';
     $stmt->execute();
 }
