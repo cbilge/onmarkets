@@ -16,10 +16,7 @@ function Parse ($url) {
 }
 
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
-$parsed = Parse($bbg);
-echo $parsed;
-$feed = json_decode($parsed);
-echo $feed->channel->title;
+$feed = json_decode(Parse($bbg));
 //adminn9rBZWt 
 //ys9FljhPItJG
 //title description link pubdate
@@ -51,10 +48,11 @@ foreach($feed->channel->item as $item){
     $pubDate = $item->pubDate;
     echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate . '\n';
 
-    $sql = "SELECT * FROM bbg_rss WHERE link=" . $link;
-    $result = mysqli_query($conn, $sql);
-    echo mysqli_num_rows($result);
-    if (mysqli_num_rows($result) = 0) {
+    $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
+    echo $sel;
+    $result = $conn->query($sel);
+    echo $result->num_rows;
+    if ($result->num_rows = 0) {
         $stmt->execute();  
     }
 
