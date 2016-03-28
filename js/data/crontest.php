@@ -17,6 +17,15 @@
 
 $fxcm = "http://rates.fxcm.com/RatesXML";
 
-$newcont = date('d.m.y') . Parse($fxcm);
-    file_put_contents(getenv('OPENSHIFT_REPO_DIR').'js/data/crontest.txt', $newcont, FILE_APPEND);
+$tickers = Parse($fxcm);
+
+foreach($tickers as $ticker){
+    $sym = $ticker['@attributes']['Symbol'];
+    $last = $ticker['Bid'];
+    $put = '{' . $sym . ':' . $last . '}';
+
+    file_put_contents(getenv('OPENSHIFT_REPO_DIR').'js/data/crontest.txt', $put, FILE_APPEND);
+}
+//$newcont = date('d.m.y') . Parse($fxcm);
+    //file_put_contents(getenv('OPENSHIFT_REPO_DIR').'js/data/crontest.txt', $newcont, FILE_APPEND);
 ?>
