@@ -26,6 +26,6 @@ foreach($tickers as $ticker){
 
     file_put_contents(getenv('OPENSHIFT_REPO_DIR').'js/data/crontest.txt', $put, FILE_APPEND);
 }
-//$newcont = date('d.m.y') . Parse($fxcm);
-    //file_put_contents(getenv('OPENSHIFT_REPO_DIR').'js/data/crontest.txt', $newcont, FILE_APPEND);
+$newcont = date('d.m.y') . Parse($fxcm);
+file_put_contents(getenv('OPENSHIFT_REPO_DIR').'js/data/crontest.txt', $newcont, FILE_APPEND);
 ?>
