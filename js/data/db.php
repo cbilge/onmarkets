@@ -36,7 +36,7 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, link, pubDate) VALUES (?, ?, ?,?)");
+$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, link, pubDate) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $title, $description, $link, $pubDate);
 
 // set parameters and execute
@@ -45,8 +45,8 @@ foreach($feed['item'] as $item){
     $description = $item['description'];        
     $link = $item['link'];
     $pubDate = $item['pubDate'];
+    echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate . '\n';
     $stmt->execute();
-
 }
 //title = "John";
 //$lastname = "Doe";
