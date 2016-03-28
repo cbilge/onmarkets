@@ -19,7 +19,7 @@ $fxcm = "http://rates.fxcm.com/RatesXML";
 
 $tickers = Parse($fxcm);
 
-foreach($tickers as $ticker){
+foreach($tickers['Rate'] as $ticker){
     $sym = $ticker['@attributes']['Symbol'];
     $last = $ticker['Bid'];
     $put = '{' . $sym . ':' . $last . '}\n';
