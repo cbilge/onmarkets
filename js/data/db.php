@@ -16,7 +16,8 @@ function Parse ($url) {
 }
 
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
-
+$feed = Parse($bbg);
+echo $feed;
 //adminn9rBZWt 
 //ys9FljhPItJG
 //title description link pubdate
@@ -39,7 +40,15 @@ $stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, link, pubDate) 
 $stmt->bind_param("ssss", $title, $description, $link, $pubDate);
 
 // set parameters and execute
-///$firstname = "John";
+foreach($feed['item'] as $item){
+    $title = $item['title'];
+    $description = $item['description'];        
+    $link = $item['link'];
+    $pubDate = $item['pubDate'];
+    $stmt->execute();
+
+}
+//title = "John";
 //$lastname = "Doe";
 //$email = "john@example.com";
 //$stmt->execute();
