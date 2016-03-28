@@ -16,8 +16,10 @@ function Parse ($url) {
 }
 
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
-$feed = json_decode(Parse($bbg));
-
+$parsed = Parse($bbg);
+echo $parsed;
+$feed = json_decode($parsed);
+echo $feed->channel->title;
 //adminn9rBZWt 
 //ys9FljhPItJG
 //title description link pubdate
