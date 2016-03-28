@@ -41,15 +41,23 @@ if ($conn->connect_error) {
 $stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, link, pubDate) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $title, $description, $link, $pubDate);
 
+
 // set parameters and execute
 foreach($feed->channel->item as $item){
-    echo $item->title;
+
     $title = $item->title;
     $description = $item->description;        
     $link = $item->link;
     $pubDate = $item->pubDate;
     echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate . '\n';
-    $stmt->execute();
+
+    $sql = "SELECT * FROM bbg_rss WHERE link=" . $link;
+    $result = mysqli_query($conn, $sql);
+    echo mysqli_num_rows($result);
+    if (mysqli_num_rows($result) = 0) {
+        $stmt->execute();  
+    }
+
 }
 //title = "John";
 //$lastname = "Doe";
