@@ -35,8 +35,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, link, pubDate) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $title, $description, $link, $pubDate);
+$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, content, lead_img_url, link, pubDate) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $title, $description, $content, $lead_img_url, $link, $pubDate);
 
 
 // set parameters and execute
@@ -48,11 +48,19 @@ foreach($feed->channel->item as $item){
     $pubDate = $item->pubDate;
     echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate . '\n';
 
+
     $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
     echo $sel;
     $result = $conn->query($sel);
     echo $result->num_rows;
     if ($result->num_rows == 0) {
+        //get readability only if link not found
+        $readbl = http_get("readability.php?url=" . $link);
+        echo $readbl;
+        $content = $readbl.contents.content;
+        $lead_img_url = $readbl.contents.lead_img_url;
+        echo $content;
+        echo $lead_img_url;
         $stmt->execute();  
     }
 }
