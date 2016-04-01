@@ -9,13 +9,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         fwrite($myfile, $data);
         fclose($myfile);
         
-        $myfile = fopen(getenv('OPENSHIFT_REPO_DIR')."js/data/on.txt", "w") or die("Unable to open file!");
+        $myfile = fopen(getenv('OPENSHIFT_REPO_DIR')."js/data/overnight.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $on);
         fclose($myfile);
 
         echo "done";
     }
 }
+
 elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
     echo "yo";
 }
