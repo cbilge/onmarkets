@@ -39,6 +39,26 @@ onmControllers.controller('OnController', ['$scope', 'Overnight', function ($sco
     $scope.themeColor = "#00B0F0";
     $scope.ondata = Overnight.get()
 
+    $scope.getColor = function (mod) {
+        var zLarge = 0.7;
+        var zSmall = 0.3;
+
+        if (mod < -zLarge) {
+            return "down2";
+        }
+        else if (mod < -zSmall) {
+            return "down1";
+        }
+        else if (mod > zSmall) {
+            return "up1";
+        }
+        else if (mod > zLarge) {
+            return "up2";
+        }
+        else {
+            return "";
+        }
+    }
 
 } ]);
 

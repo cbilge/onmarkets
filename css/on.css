@@ -32,10 +32,21 @@ td:first-child, th:first-child  {
     padding: 0;  
 }
 
-.uptick {
+.up2 {
+    color: #77e100;
+    font-weight: 600;
+}
+
+.up1 {
     color: #77e100;
 }
 
-.downtick {
+.down1 {
     color: #FF0000;
 }
+
+.down2 {
+    color: #FF0000;
+    font-weight: 600;
+}
+

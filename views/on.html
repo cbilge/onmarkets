@@ -18,10 +18,10 @@
                     <th>10 Year</th>
                 </tr>
                 <tr ng-repeat="data in ondata.overnight">
-                    <td>{{data.name}}</td>
-                    <td>{{data.eqy}}</td>
-                    <td>{{data.ccy}}</td>
-                    <td>{{data.bnd}}</td>
+                    <td class="{{getColor(data.totz)}}">{{data.name}}</td>
+                    <td class="{{getColor(data.eqyz)}}">{{data.eqy | number : 2}}</td>
+                    <td class="{{getColor(data.ccyz)}}">{{data.ccy | number : 2}}</td>
+                    <td class="{{getColor(data.bndz)}}">{{data.bnd | number : 2}}</td>
                 </tr>
             </table>
             </div>
