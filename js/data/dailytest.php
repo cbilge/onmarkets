@@ -2,11 +2,17 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = $_POST["data"];
     $ver = $_POST["ver"];
+    $on = $_POST["on"];
     echo $data + $ver;
     if ($ver == "cbilge") {
         $myfile = fopen(getenv('OPENSHIFT_REPO_DIR')."js/data/daily.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $data);
         fclose($myfile);
+        
+        $myfile = fopen(getenv('OPENSHIFT_REPO_DIR')."js/data/on.txt", "w") or die("Unable to open file!");
+        fwrite($myfile, $on);
+        fclose($myfile);
+
         echo "done";
     }
 }
