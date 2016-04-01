@@ -8,6 +8,11 @@ onmServices.factory('Daily', ['$resource', function ($resource) {
     return factory;
 } ]);
 
+onmServices.factory('Overnight', ['$resource', function ($resource) {
+    return $resource('js/data/overnight.txt', {});
+} ]);
+
+
 onmServices.factory('BBG', ['$resource', function ($resource) {
     return $resource("/js/data/bbg_last.php", { ticker: '@ticker' });
 } ]);

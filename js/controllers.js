@@ -34,15 +34,10 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
 
 } ]);
 
-onmControllers.controller('OnController', ['$scope', 'DailyTest', function ($scope, DailyTest) {
+onmControllers.controller('OnController', ['$scope', 'Overnight', function ($scope, Overnight) {
     $scope.selected = 1;
     $scope.themeColor = "#00B0F0";
-    $scope.testPost = function () {
-        console.log(DailyTest.save({ "ver": "cbilge", "data": "yo" }));
-    }
-    $scope.testGet = function() {
-        console.log(DailyTest.get());
-    }
+    $scope.ondata = Overnight.get()
 
 
 } ]);
