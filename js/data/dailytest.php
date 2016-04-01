@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "done";
     }
 }
-
 elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
     echo "yo";
 }
