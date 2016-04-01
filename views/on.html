@@ -8,6 +8,23 @@
                 <h2><span class="glyphicon glyphicon-globe"></span> Overnight Synopsis</h2>
             </div>
         </div>
-        <div class="panel-body textpanel">{{daily.synopsis}}</div>
+        <div class="panel-body">
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>Country</th>
+                    <th>Equity</th>
+                    <th>Currency</th>
+                    <th>10 Year</th>
+                </tr>
+                <tr ng-repeat="data in ondata">
+                    <td>{{data.name}}</td>
+                    <td>{{data.eqy}}</td>
+                    <td>{{data.ccy}}</td>
+                    <td>{{data.bnd}}</td>
+                </tr>
+            </table>
+            </div>
+        </div>
     </div>
 </div>

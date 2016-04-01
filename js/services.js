@@ -21,11 +21,6 @@ onmServices.factory('bbgRss', ['$resource', function ($resource) {
     return $resource("/js/data/bbg_rss.php", {});
 } ]);
 
-onmServices.factory('DailyTest', ['$resource', function ($resource) {
-    return $resource("/js/data/dailytest.php");
-} ]);
-
-
 onmServices.factory('Readability', ['$resource', function ($resource) {
     return $resource("/js/data/readability.php?url=@url", {url:'@url'});
 } ]);
