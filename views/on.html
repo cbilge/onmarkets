@@ -1,6 +1,6 @@
 <link href="css/on.css" rel="stylesheet">
 <div ng-include="'/views/navbar.html'"></div>
-<div class="container-fluid">
+<div class="container">
     <!-- Synopsis -->
     <div class="panel panel-default">
         <div style="background-color: {{themeColor}}" class="panel-heading">
@@ -9,6 +9,7 @@
             </div>
         </div>
         <div class="panel-body">
+            <div class="synopsis"><p>{{ondata.synopsis}}</p></div>
             <div class="table-responsive">
             <table class="table table-striped onTable">
                 <tr>
@@ -17,7 +18,7 @@
                     <th>Currency</th>
                     <th>10 Year</th>
                 </tr>
-                <tr ng-repeat="data in ondata.overnight">
+                <tr ng-repeat="data in ondata.overnight" class="{{region(data)}}">
                     <td class="{{getColor(data.totz)}}">{{data.name}}</td>
                     <td class="{{getColor(data.eqyz)}}">{{data.eqy * 100 | number : 1}}%</td>
                     <td class="{{getColor(data.ccyz)}}">{{data.ccy * 100 | number : 1}}%</td>

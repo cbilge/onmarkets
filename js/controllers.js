@@ -37,8 +37,21 @@ onmControllers.controller('HomeController', ['$scope', 'Daily', '$http', functio
 onmControllers.controller('OnController', ['$scope', 'Overnight', function ($scope, Overnight) {
     $scope.selected = 1;
     $scope.themeColor = "#00B0F0";
-    $scope.ondata = Overnight.get()
-
+    $scope.ondata = Overnight.get();
+    console.log($scope.ondata.synopsis);
+    $scope.region = function (data) {
+        var cls = "";
+        if (data.name == "Asia" || data.name == "Americas" || data.name == "EMEA") {
+            cls = "region";
+            if (data.totz < -0.3) {
+                cls += " down";
+            }
+            else if (data.totz > 0.3) {
+                cls += " up";
+            }
+        }
+        return cls;
+    }
     $scope.getColor = function (mod) {
         var zLarge = 0.7;
         var zSmall = 0.3;

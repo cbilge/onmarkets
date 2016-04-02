@@ -1,4 +1,5 @@
-{"overnight":[{"name": "Asia",
+{
+"synopsis": "Strong bids on average. Rally in Asia. Markets are mostly flat in Americas. Strong performance in American equities (0.7%), Asian equities (0.5%) and EMEA FX (0.3%). Weak performance in Brazilian bonds (+19bps), American bonds (+4bps) and CAD (-0.5%). India best, Canada worst performer. Notable movement in WTI (6.1%), Brent (5.1%) and Energies (3.5%). Over the past week, Turkey has moved ahead of peers. Important data releases today: US GDP Annualized QoQ @15:30, US Core PCE QoQ @15:30 and US PCE Core MoM @17:00. ","overnight":[{"name": "Asia",
 "tot": "-0.6721",
 "eqy": "-0.0101",
 "ccy": "-0.0035",

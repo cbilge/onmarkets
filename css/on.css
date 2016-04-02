@@ -29,9 +29,22 @@ td:first-child, th:first-child  {
 }
 
 .onTable{
-    max-width: 900px !important;
     font-size: large;
-        
+}
+
+.region {
+    background-color: #ffffde !important;
+    color: #333 !important;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+.region.up {
+    background-color: #eeffdc !important;
+}
+
+.region.down {
+    background-color: #fff3f3 !important;
 }
 
 .joint {
