@@ -28,6 +28,12 @@ td:first-child, th:first-child  {
     margin: 0px;
 }
 
+.onTable{
+    max-width: 900px !important;
+    font-size: large;
+        
+}
+
 .joint {
     padding: 0;  
 }

@@ -10,7 +10,7 @@
         </div>
         <div class="panel-body">
             <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped onTable">
                 <tr>
                     <th>Country</th>
                     <th>Equity</th>
@@ -19,9 +19,9 @@
                 </tr>
                 <tr ng-repeat="data in ondata.overnight">
                     <td class="{{getColor(data.totz)}}">{{data.name}}</td>
-                    <td class="{{getColor(data.eqyz)}}">{{data.eqy | number : 2}}</td>
-                    <td class="{{getColor(data.ccyz)}}">{{data.ccy | number : 2}}</td>
-                    <td class="{{getColor(data.bndz)}}">{{data.bnd | number : 2}}</td>
+                    <td class="{{getColor(data.eqyz)}}">{{data.eqy * 100 | number : 1}}%</td>
+                    <td class="{{getColor(data.ccyz)}}">{{data.ccy * 100 | number : 1}}%</td>
+                    <td class="{{getColor(data.bndz)}}">{{data.bnd | number : 1}}</td>
                 </tr>
             </table>
             </div>
