@@ -11,17 +11,19 @@
             <table class="table table-striped table-responsive calendarTable">
                 <tr>
                     <th>Name</th>
+                    <th>Date</th>
                     <th>Country</th>
-                    <th>Release</th>
+                    <th>Importance</th>
                     <th>Period</th>
                     <th>Survey</th>
                     <th>Actual</th>
                     <th>Prior</th>                
                 </tr>
-                <tr ng-repeat="data in daily.calendar">
+                <tr ng-repeat="data in ecodata.eco">
                     <td>{{data.name}}</td>
-                    <td>{{data.country}}</td>
                     <td>{{data.date}}</td>
+                    <td>{{data.country}}</td>
+                    <td>{{data.importance}}</td>
                     <td>{{data.period}}</td>
                     <td>{{data.survey}}</td>
                     <td>{{data.last}}</td>

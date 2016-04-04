@@ -75,11 +75,13 @@ onmControllers.controller('OnController', ['$scope', 'Overnight', function ($sco
 
 } ]);
 
-onmControllers.controller('CalController', function($scope) {
+onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope, EcoCal) {
     $scope.selected = 2;
     $scope.themeColor = "#F39C11";
     $scope.title = "Calendar";
-});
+    $scope.ecodata = EcoCal.get();
+
+} ]);
 
 onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, fxcm) {
     $scope.selected = 3;

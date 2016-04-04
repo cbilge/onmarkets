@@ -12,6 +12,9 @@ onmServices.factory('Overnight', ['$resource', function ($resource) {
     return $resource('js/data/overnight.txt', {});
 } ]);
 
+onmServices.factory('EcoCal', ['$resource', function ($resource) {
+    return $resource('js/data/eco.txt', {});
+} ]);
 
 onmServices.factory('BBG', ['$resource', function ($resource) {
     return $resource("/js/data/bbg_last.php", { ticker: '@ticker' });
