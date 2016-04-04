@@ -80,6 +80,51 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
     $scope.themeColor = "#F39C11";
     $scope.title = "Calendar";
     $scope.ecodata = EcoCal.get();
+    console.log($scope.ecodata.eco);
+
+    $scope.clsDate = function (dat) {
+        var data = new Date(dat.date);
+        var today = new Date();
+        if (data < today) {
+            return "yest";
+        }
+        else if (data > today) {
+            return "tom";
+        }
+        else {
+            if (data.actual == "-") {
+                return "today new";
+            }
+            else {
+                return "today old";
+            }
+        }
+    }
+
+    $scope.clsActual = function (dat) {
+        var last = dat.actual;
+        if (last == "-") {
+            return "";
+        }
+
+        if (dat.survey == "-") {
+            var target = dat.prior;
+        }
+        else {
+            var target = dat.survey;
+        }
+
+
+        if (last < target) {
+            return "downtick";
+        }
+        else if (last > target) {
+            return "uptick";
+        }
+        else {
+            return "";
+        }
+    }
 
 } ]);
 

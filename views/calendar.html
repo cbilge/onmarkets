@@ -17,16 +17,16 @@
                     <th>Period</th>
                     <th>Survey</th>
                     <th>Actual</th>
-                    <th>Prior</th>                
+                    <th>Prior</th>
                 </tr>
-                <tr ng-repeat="data in ecodata.eco">
+                <tr ng-repeat="data in ecodata.eco" class="{{clsDate(data)}}">
                     <td>{{data.name}}</td>
                     <td>{{data.date}}</td>
                     <td>{{data.country}}</td>
                     <td>{{data.importance}}</td>
                     <td>{{data.period}}</td>
                     <td>{{data.survey}}</td>
-                    <td>{{data.last}}</td>
+                    <td class="{{clsActual(data)}}">{{data.actual}}</td>
                     <td>{{data.prior}}</td>   
                 </tr>
             </table>

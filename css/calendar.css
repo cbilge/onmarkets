@@ -39,3 +39,15 @@ td:first-child, th:first-child  {
 .downtick {
     color: #FF0000;
 }
+
+.today.old {
+    background-color: rgb(155, 89, 182);
+}
+
+.today.new {
+    background-color: rgb(142, 68, 173);
+}
+
+.yest {
+    background-color: rgb(236, 240, 241);
+}
