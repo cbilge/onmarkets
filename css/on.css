@@ -32,11 +32,17 @@ td:first-child, th:first-child  {
     font-size: large;
 }
 
+.synopsis {
+    font-size: large;
+    padding: 5px 10px 5px 10px;
+}
+
 .region {
     background-color: #ffffde !important;
     color: #333 !important;
     border-top: 2px solid;
     border-bottom: 2px solid;
+    font-weight: 600;
 }
 
 .region.up {
@@ -69,3 +75,8 @@ td:first-child, th:first-child  {
     font-weight: 600;
 }
 
+@media screen and (max-width: 768px) {
+    .synopsis, .onTable {
+        font-size: medium;
+    }
+}
