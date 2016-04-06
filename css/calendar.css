@@ -42,10 +42,12 @@ td:first-child, th:first-child  {
 
 .today.old {
     background-color: rgb(155, 89, 182);
+    color: #FFF;
 }
 
 .today.new {
     background-color: rgb(142, 68, 173);
+    color: #FFF;
 }
 
 .yest {

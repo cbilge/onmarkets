@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="panel-body">
-            <table class="table table-striped table-responsive calendarTable">
+            <table class="table calendarTable">
                 <tr>
                     <th>Name</th>
                     <th>Date</th>
@@ -21,7 +21,7 @@
                 </tr>
                 <tr ng-repeat="data in ecodata.eco" class="{{clsDate(data)}}">
                     <td>{{data.name}}</td>
-                    <td>{{data.date}}</td>
+                    <td>{{data.date | date : 'dd/MM HH:mm' : '+0200'}}</td>
                     <td>{{data.country}}</td>
                     <td>{{data.importance}}</td>
                     <td>{{data.period}}</td>
