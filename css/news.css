@@ -88,6 +88,9 @@
     width: 100%;
     background-color: #ffffff;
     padding: 20px;
+}
+
+#newslist {
     overflow-y: scroll;
 }
 

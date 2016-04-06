@@ -22,16 +22,25 @@ h2, h3, h4, .navbar-brand {
     vertical-align: middle;
 }
 
-.nav-pills {
-    border-bottom: none;
-    height: 50px;
-    border-color: #FFF;
+#pillNav {
+    background-color: #34495e;
+	font-size: 16px !important;
+	z-index: 9999;
+    height: 45px !important;
+    margin: 0px, 0px, 5px, 0px !important;
+    padding: 2px 0px 2px 0px;
+    border: none;
     vertical-align: middle;
+}
+
+.nav-pills li a {
+	color: #fff !important;
+    padding: 10px 15px 10px 15px;
+    border-radius: 4px;   
 }
 
 .nav-pills li {
     border-radius: 4px;
-    margin-top: 1px;
 }
 
 .glyphicon {
@@ -51,18 +60,13 @@ h2, h3, h4, .navbar-brand {
 	background-color: #34495e;
 	font-size: 16px !important;
 	z-index: 9999;
-    border: 0;
     border-bottom: 5px solid;
     height: 50px;
 }
 
-
-.navbar .glyphicon {
-	height: 20px;
-}
-
-.navbar li a, .navbar .navbar-brand {
-	color: #fff !important;
+.navbar-toggle {
+    margin-top: 6px;
+    margin-right: 8px;
 }
 
 .icon-bar{

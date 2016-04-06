@@ -27,9 +27,19 @@
                     <td>{{data.period}}</td>
                     <td>{{data.survey}}</td>
                     <td class="{{clsActual(data)}}">{{data.actual}}</td>
-                    <td>{{data.prior}}</td>   
+                    <td>{{data.prior}}</td>
                 </tr>
             </table>
+        </div>
+        <div class="panel-group">
+            <div ng-repeat="data in ecodata.eco" class="panel panel-default">
+                <div ng-click="global.activeData=$index" class="panel-heading {{clsDate(data)}}">
+                    {{data.name}}
+                </div>
+                <div ng-show="$index==global.activeData" class="panel-body">
+                    {{data.actual}}
+                </div>
+            </div>
         </div>
     </div>
 </div>

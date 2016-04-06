@@ -80,7 +80,7 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
     $scope.themeColor = "#F39C11";
     $scope.title = "Calendar";
     $scope.ecodata = EcoCal.get();
-
+    $scope.global = {};
     $scope.clsDate = function (dat) {
         var data = new Date(dat.date);
         data.setSeconds(0);
