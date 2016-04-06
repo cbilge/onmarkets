@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="panel-body">
-            <table class="table calendarTable">
+            <table class="table calendarTable hidden-xs">
                 <tr>
                     <th>Name</th>
                     <th>Date</th>
@@ -31,13 +31,26 @@
                 </tr>
             </table>
         </div>
-        <div class="panel-group">
-            <div ng-repeat="data in ecodata.eco" class="panel panel-default">
+        <div class="panel-group hidden-sm hidden-md hidden-lg">
+            <div ng-repeat="data in ecodata.eco" class="panel panel-default dataPanel">
                 <div ng-click="global.activeData=$index" class="panel-heading {{clsDate(data)}}">
-                    {{data.name}}
+                    <div>{{data.country}} {{data.name}}</div><div class="text-right">{{data.date | date : 'dd/MM HH:mm': '+0200'}}</div>
                 </div>
                 <div ng-show="$index==global.activeData" class="panel-body">
-                    {{data.actual}}
+                    <table class="table table-default">
+                        <tr>
+                            <th>Period</th>
+                            <th>Survey</th>
+                            <th>Actual</th>
+                            <th>Prior</th>
+                        </tr>
+                        <tr>
+                            <td>{{data.period}}</td>
+                            <td>{{data.survey}}</td>
+                            <td class="{{clsActual(data)}}">{{data.actual}}</td>
+                            <td>{{data.prior}}</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

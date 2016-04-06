@@ -51,5 +51,28 @@ td:first-child, th:first-child  {
 }
 
 .yest {
-    background-color: rgb(236, 240, 241);
+    background-color: rgb(236, 240, 241) !important;
+}
+
+.label {
+    background-color: #808080;
+    margin-left: auto;
+}
+
+.today .label {
+    background-color: #FFF;
+    color: #808080;
+}
+
+.dataPanel {
+    margin: 0px !important;
+}
+
+.panel-heading div {
+    display: inline;
+}
+
+.text-right {
+    float: right;
+    padding-right: 8px;
 }
