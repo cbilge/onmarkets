@@ -59,7 +59,7 @@ foreach($feed->channel->item as $item){
         echo $readbl;
         $readbl = json_decode($readbl);
         $content = $readbl->contents->content;
-        $lead_image_url = $readbl->contents->lead_img_url;
+        $lead_image_url = $readbl->contents->lead_image_url;
         echo $content;
         echo $lead_image_url;
         $stmt->execute();  
