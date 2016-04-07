@@ -55,7 +55,7 @@ foreach($feed->channel->item as $item){
     echo $result->num_rows;
     if ($result->num_rows == 0) {
         //get readability only if link not found
-        $readbl = http_get(getenv('OPENSHIFT_REPO_DIR')."js/data/readability.php?url=" . $link);
+        $readbl = http_get("readability.php?url=" . $link);
         echo $readbl;
         $content = $readbl->contents->content;
         $lead_image_url = $readbl->contents->lead_img_url;
