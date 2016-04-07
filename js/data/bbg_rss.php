@@ -32,9 +32,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT title, description, content, lead_img_url, link, pubDate FROM bbg_rss ORDER BY pubDate DESC LIMIT 30";
+$sql = "SELECT title, description, content, lead_img_url, link, pubDate FROM bbg_rss LIMIT 30";
 $result = $conn->query($sql);
 
-echo json_encode($result);
+echo $result;
 
 ?>
