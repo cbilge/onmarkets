@@ -46,7 +46,7 @@ foreach($feed->channel->item as $item){
     $description = $item->description;        
     $link = $item->link;
     $pubDate = $item->pubDate;
-    echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate . '\n';
+    echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate;
 
 
     $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
@@ -55,7 +55,7 @@ foreach($feed->channel->item as $item){
     echo $result->num_rows;
     if ($result->num_rows == 0) {
         //get readability only if link not found
-        $readbl = http_get("readability.php?url=" . $link);
+        $readbl = file_get_contents("readability.php?url=" . $link);
         echo $readbl;
         $content = $readbl->contents->content;
         $lead_image_url = $readbl->contents->lead_img_url;
