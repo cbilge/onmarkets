@@ -55,6 +55,8 @@ foreach($feed->channel->item as $item){
     echo $result->num_rows;
     if ($result->num_rows == 0) {
         //get readability only if link not found
+        $rdbllink = "readability.php?url=" . $link;
+        echo $rdbllink;
         $readbl = file_get_contents("readability.php?url=" . $link);
         echo $readbl;
         echo json_encode($readbl);
