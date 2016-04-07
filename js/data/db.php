@@ -57,6 +57,7 @@ foreach($feed->channel->item as $item){
         //get readability only if link not found
         $readbl = file_get_contents("readability.php?url=" . $link);
         echo $readbl;
+        echo json_encode($readbl);
         $content = $readbl->contents->content;
         $lead_image_url = $readbl->contents->lead_img_url;
         echo $content;
