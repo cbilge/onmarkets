@@ -46,16 +46,12 @@ foreach($feed->channel->item as $item){
     $description = $item->description;        
     $link = $item->link;
     $pubDate = $item->pubDate;
-    echo $title . ' ' . $description . ' ' . $link . ' ' . $pubDate;
-
-
     $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
-    echo $sel;
     $result = $conn->query($sel);
-    echo $result->num_rows;
+
     if ($result->num_rows == 0) {
         //get readability only if link not found
-        $readbl = file_get_contents(getenv('OPENSHIFT_REPO_DIR')."js/data/readability.php?url=" . $link);
+        $readbl = file_get_contents($_SERVER['DOCUMENT_ROOT']."/js/data/readability.php?url=" . $link);
         echo $readbl;
         $readbl = json_decode($readbl);
         $content = $readbl->contents->content;
