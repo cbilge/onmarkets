@@ -17,7 +17,7 @@ function Parse ($url) {
 
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
 
-echo Parse($bbg);
+//echo Parse($bbg);
 
 $servername = "127.5.102.2";
 $username = "adminn9rBZWt";
