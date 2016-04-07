@@ -34,7 +34,11 @@ if ($conn->connect_error) {
 
 $sql = "SELECT title, description, content, lead_image_url, link, pubDate FROM bbg_rss ORDER BY updateTime DESC";
 $result = $conn->query($sql);
+$rows = array();
+while($r = mysqli_fetch_assoc($result)) {
+    $rows[] = $r;
+}
 
-echo $result;
+echo json_encode($rows);
 
 ?>
