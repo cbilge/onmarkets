@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-12">
 			<ul id="newslist" class="list-group">
-				<li class="list-group-item entry" ng-repeat="item in feed.channel.item" ng-click="selectItem(item)" ng-class="{'active' : item.link==activeLink}"><span class="glyphicon glyphicon-chevron-right"></span><p class="entry-title">{{item.title}}</p></li>
+				<li class="list-group-item entry" ng-repeat="item in feed.channel.item" ng-hide="fullRead" ng-click="selectItem(item)" ng-class="{'active' : item.link==activeLink}"><span class="glyphicon glyphicon-chevron-right"></span><p class="entry-title">{{item.title}}</p></li>
 			</ul>
 			</div>
 			<div class="col-md-8 hidden-sm hidden-xs reader-wrap" id="side-reader">
@@ -24,6 +24,7 @@
                 </div>
                 <h2>{{activeText.contents.title}}</h2>
                 <p ng-bind-html="activeText.contents.content"></p>
+                </br>
             </div>        
         </div>
 	</div>
