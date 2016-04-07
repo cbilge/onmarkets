@@ -76,3 +76,29 @@ td:first-child, th:first-child  {
     float: right;
     padding-right: 8px;
 }
+
+.badge {
+    font-size: 16px;
+    margin-right: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 24px;
+}
+
+.badge-up {
+    background-color: #376900 !important;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.badge-down {
+    background-color: #a20000 !important;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.badge-flat {
+    background-color: #585858 !important;
+    color: #FFF;
+    font-weight: 600;
+}

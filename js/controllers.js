@@ -80,7 +80,8 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
     $scope.themeColor = "#F39C11";
     $scope.title = "Calendar";
     $scope.ecodata = EcoCal.get();
-    $scope.global = {};
+    $scope.activeData = -1;
+
     $scope.clsDate = function (dat) {
         var data = new Date(dat.date);
         data.setSeconds(0);
@@ -91,22 +92,17 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
         var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         var tom = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
 
-        console.log("data: " + data + " today: " + today + " tom: " + tom + " data: " + dat.date);
         if (data < today) {
-            console.log("yest");
             return "yest";
         }
         else if (data >= tom) {
-            console.log("tom");
             return "tom";
         }
         else {
             if (dat.actual == "-") {
-                console.log("tod new");
                 return "today new";
             }
             else {
-                console.log("tod old");
                 return "today old";
             }
         }
@@ -131,6 +127,53 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
         }
         else if (last > target) {
             return "uptick";
+        }
+        else {
+            return "";
+        }
+    }
+
+    $scope.selectData = function (index) {
+        if ($scope.activeData == index) {
+            $scope.activeData = -1;
+        }
+        else {
+            $scope.activeData = index;
+        }
+    }
+    $scope.clsBadge = function (dat) {
+        var act = $scope.clsActual(dat);
+        var date = $scope.clsDate(dat);
+        console.log(act);
+        if (date == "yest" || date == "today old") {
+            if (act == "uptick") {
+                return "badge-up";
+            }
+            else if (act == "downtick") {
+                return "badge-down";
+            }
+            else {
+                return "badge-flat";
+            }
+        }
+        else if (date == "today new") {
+            return "badge-today";
+        }
+        else {
+            return "badge-tom";
+        }
+    }
+
+    $scope.clsGlyph = function (dat) {
+        var bdg = $scope.clsBadge(dat);
+        if (bdg == "badge-up") {
+            return "+";
+        }
+        else if (bdg == "badge-down") {
+            return "&ndash;";
+        }
+        else if (bdg == "badge-flat") {
+            return "=";
         }
         else {
             return "";
