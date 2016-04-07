@@ -35,8 +35,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, content, lead_img_url, link, pubDate) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssssss", $title, $description, $content, $lead_img_url, $link, $pubDate);
+$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, content, lead_image_url, link, pubDate) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $title, $description, $content, $lead_image_url, $link, $pubDate);
 
 
 // set parameters and execute
@@ -58,9 +58,9 @@ foreach($feed->channel->item as $item){
         $readbl = http_get(getenv('OPENSHIFT_REPO_DIR')."js/data/readability.php?url=" . $link);
         echo $readbl;
         $content = $readbl->contents->content;
-        $lead_img_url = $readbl->contents->lead_img_url;
+        $lead_image_url = $readbl->contents->lead_img_url;
         echo $content;
-        echo $lead_img_url;
+        echo $lead_image_url;
         $stmt->execute();  
     }
 }
