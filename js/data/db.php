@@ -15,6 +15,8 @@ function Parse ($url) {
 
 }
 
+include('readability.php');
+
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
 $feed = json_decode(Parse($bbg));
 //adminn9rBZWt 
@@ -51,9 +53,8 @@ foreach($feed->channel->item as $item){
 
     if ($result->num_rows == 0) {
         //get readability only if link not found
-        $readbl = file_get_contents($_SERVER['DOCUMENT_ROOT']."/js/data/readability.php?url=" . $link);
+        $readbl = readability($link);
         echo $readbl;
-        $readbl = json_decode($readbl);
         $content = $readbl->contents->content;
         $lead_image_url = $readbl->contents->lead_image_url;
         echo $content;
