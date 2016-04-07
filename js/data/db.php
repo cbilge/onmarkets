@@ -54,18 +54,11 @@ foreach($feed->channel->item as $item){
     if ($result->num_rows == 0) {
         //get readability only if link not found
         $readbl = readability($link);
-        echo $readbl;
         $content = $readbl->contents->content;
         $lead_image_url = $readbl->contents->lead_image_url;
-        echo $content;
-        echo $lead_image_url;
         $stmt->execute();  
     }
 }
-//title = "John";
-//$lastname = "Doe";
-//$email = "john@example.com";
-//$stmt->execute();
 
 echo "New records created successfully";
 
