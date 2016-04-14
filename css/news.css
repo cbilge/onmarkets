@@ -10,26 +10,12 @@
 	padding-left: 6px;
 }
 
-.entry span.active {
-	color: #ffffff !important;
+.entry i.active {
+	color: #fff !important;
 }
 
 .entry li.active {
      background-color: #3498DB;
-}
-
-.panel-body {
-    height: 800px;
-}
-
-.reader-wrap {
-    height: 800px;
-    overflow-y: scroll;
-}
-
-.reader h2, h3, h4{
-    text-align: left;
-    padding: 5px 0 5px 0;
 }
 
 .list-group {
@@ -37,26 +23,8 @@
     border: none !important;
 }
 
-.panel-heading {
-    padding: 10px 0px 8px 4px;
-}
-
-.panel-title {
-    font-size: 22px;
-    color: #FFF;
-}
-
-.panel-body {
-    padding: 0px;
- }
-
 .textpanel {
     padding: 5px 0px 2px 4px;
-}
-
-
-.joint {
-    padding: 0;  
 }
 
 .header {
@@ -90,23 +58,34 @@
     padding: 20px;
 }
 
+.readBtn {
+    position: fixed;
+    top: 6px;
+    right: 10px;
+}
+
 #side-reader {
     position: fixed;
     top: 0px;
+    left: 33%;
     overflow: hidden auto;
     height: 100%;
     padding-top: 55px;
 }
+
+
 
 #newslist {
     overflow: hidden auto;
     height: 100%;
     position: fixed;
     top: 0;
+    width: 33%;
 }
 
-.readBtn {
-    position: fixed;
-    top: 6px;
-    right: 10px;
+@media screen and (max-width: 992px) {
+    #newslist {
+        width: 100%;
+    }
 }
+
