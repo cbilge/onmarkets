@@ -15,7 +15,23 @@ function Parse ($url) {
 
 }
 
-include('readability.php');
+function readability($link) {
+    $ch = curl_init( $url );
+  
+      curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
+      curl_setopt( $ch, CURLOPT_HEADER, true );
+      curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+  
+      curl_setopt( $ch, CURLOPT_USERAGENT, $_GET['user_agent'] ? $_GET['user_agent'] : $_SERVER['HTTP_USER_AGENT'] );
+  
+      list( $header, $contents ) = preg_split( '/([\r\n][\r\n])\\1/', curl_exec( $ch ), 2 );
+  
+      $status = curl_getinfo( $ch );
+  
+      curl_close( $ch );
+    
+      return $contents;
+}
 
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
 $feed = json_decode(Parse($bbg));
@@ -54,6 +70,7 @@ foreach($feed->channel->item as $item){
     if ($result->num_rows == 0) {
         //get readability only if link not found
         $readbl = readability($link);
+        echo $readbl;
         $content = $readbl->contents->content;
         $lead_image_url = $readbl->contents->lead_image_url;
         $stmt->execute();  
