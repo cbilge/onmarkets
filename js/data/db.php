@@ -74,6 +74,7 @@ foreach($feed->channel->item as $item){
         $content = mysqli_escape_string($readbl->content);
         $lead_image_url = mysqli_escape_string($readbl->lead_image_url);
         $stmt->execute();  
+        printf("Error: %s.\n", $stmt->error);
     }
 }
 
