@@ -74,8 +74,9 @@ foreach($feed->channel->item as $item){
         echo $link;
         $readbl = readability($link);
         echo $readbl;
-        $content = $readbl->contents->content;
-        $lead_image_url = $readbl->contents->lead_image_url;
+        $content = $readbl->content;
+        echo $content;
+        $lead_image_url = $readbl->lead_image_url;
         $stmt->execute();  
     }
 }

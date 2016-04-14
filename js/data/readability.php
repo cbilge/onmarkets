@@ -72,7 +72,6 @@ function readability($link) {
       }
   
       print $contents;
-      return $contents;
 
     } else {
   
@@ -115,7 +114,6 @@ function readability($link) {
       $json = json_encode( $data );
   
       print $jsonp_callback ? "$jsonp_callback($json)" : $json;
-      return $jsonp_callback ? "$jsonp_callback($json)" : $json;
     }
 }
 
