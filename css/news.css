@@ -47,10 +47,6 @@
     background-color: #3498DB;
 }
 
-.main {
-    overflow: hidden;
-}
-
 #full-reader {
     z-index: 9999;
     position: fixed;
@@ -85,6 +81,10 @@
     top: 0;
     width: 33%;
     padding: 55px 8px 0px 8px;
+}
+
+#newslist::-webkit-scrollbar, #side-reader::-webkit-scrollbar, #full-reader::-webkit-scrollbar {
+    display: none;
 }
 
 @media screen and (max-width: 992px) {
