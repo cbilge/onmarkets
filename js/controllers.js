@@ -184,10 +184,8 @@ onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', 
     $scope.feed = bbgRss.get();
     console.log($scope.feed);
 
-    $scope.selectItem = function (item) {
-        $scope.activeLink = item.link;
-        console.log(item);
-        $scope.activeText = Readability.get({ url: item.link });
+    $scope.selectItem = function (index) {
+        $scope.activeId = index;
         if ($window.innerWidth < 992) {
             $scope.fullRead = true;
             $scope.readerHeight = $window.innerHeight - 50;
@@ -196,7 +194,7 @@ onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', 
 
     $scope.hideRead = function () {
         $scope.fullRead = false;
-        $scope.activeLink = "";
+        $scope.activeId = -1;
     }
 
 } ]);

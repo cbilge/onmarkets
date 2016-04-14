@@ -92,6 +92,8 @@
 
 #newslist {
     overflow-y: scroll;
+    height: 100%;
+    padding-top: 60px;
 }
 
 .readBtn {
