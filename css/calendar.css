@@ -19,6 +19,10 @@ th, td {
     text-align: center;
 }
 
+th{
+    background-color: rgb(249,249,249);
+}
+
 td:first-child, th:first-child  {
     text-align: left;
 }

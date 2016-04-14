@@ -72,7 +72,8 @@ function readability($link) {
       }
   
       print $contents;
-  
+      return $contents;
+
     } else {
   
       // $data will be serialized into JSON data.
@@ -114,7 +115,7 @@ function readability($link) {
       $json = json_encode( $data );
   
       print $jsonp_callback ? "$jsonp_callback($json)" : $json;
-  
+      return $jsonp_callback ? "$jsonp_callback($json)" : $json;
     }
 }
 
