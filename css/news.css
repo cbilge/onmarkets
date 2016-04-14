@@ -23,16 +23,10 @@
     border: none !important;
 }
 
-.textpanel {
-    padding: 5px 0px 2px 4px;
+.reader h2 {
+    padding: 0px;
 }
 
-.header {
-    height: 30px;
-    margin: 0;
-    color: #ffffff;
-    vertical-align: middle;
-}
 
 .original {
     padding: 12px 30px 12px 30px;
@@ -60,8 +54,8 @@
 
 .readBtn {
     position: fixed;
-    top: 6px;
-    right: 10px;
+    top: 85%;
+    right: 5%;
 }
 
 #side-reader {
