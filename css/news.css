@@ -47,6 +47,10 @@
     background-color: #3498DB;
 }
 
+.main {
+    overflow: hidden;
+}
+
 #full-reader {
     z-index: 9999;
     position: fixed;
@@ -56,7 +60,7 @@
     width: 100%;
     background-color: #fff;
     padding: 55px 8px 0px 8px;
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 .readBtn {
@@ -69,15 +73,13 @@
     position: fixed;
     top: 0px;
     left: 33%;
-    overflow: auto;
+    overflow-y: scroll;
     height: 100%;
     padding: 55px 8px 0px 8px;
 }
 
-
-
 #newslist {
-    overflow: auto;
+    overflow-y: scroll;
     height: 100%;
     position: fixed;
     top: 0;
