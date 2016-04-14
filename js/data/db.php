@@ -61,10 +61,10 @@ $stmt->bind_param("ssssss", $title, $description, $content, $lead_image_url, $li
 // set parameters and execute
 foreach($feed->channel->item as $item){
 
-    $title = $item->title;
-    $description = $item->description;        
-    $link = $item->link;
-    $pubDate = $item->pubDate;
+    $title = mysqli_escape_string($item->title);
+    $description = mysqli_escape_string($item->description);        
+    $link = mysqli_escape_string($item->link);
+    $pubDate = mysqli_escape_string($item->pubDate);
     $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
     $result = $conn->query($sel);
     if ($result->num_rows == 0) {
@@ -72,7 +72,7 @@ foreach($feed->channel->item as $item){
         echo $link;
         $readbl = json_decode(readability($link));
         $content = mysqli_escape_string($readbl->content);
-        $lead_image_url = $readbl->lead_image_url;
+        $lead_image_url = mysqli_escape_string($readbl->lead_image_url);
         $stmt->execute();  
     }
 }
