@@ -16,6 +16,7 @@ function Parse ($url) {
 }
 
 function readability($link) {
+    $url = "http://www.readability.com/api/content/v1/parser?url=" . $link . "&token=8554ae1a3f72567db4a0a1af7966f0242988f9ae";
     $ch = curl_init( $url );
   
       curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
@@ -66,9 +67,11 @@ foreach($feed->channel->item as $item){
     $pubDate = $item->pubDate;
     $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
     $result = $conn->query($sel);
-
+    echo $title;
+    echo $result->num_rows;
     if ($result->num_rows == 0) {
         //get readability only if link not found
+        echo $link;
         $readbl = readability($link);
         echo $readbl;
         $content = $readbl->contents->content;
