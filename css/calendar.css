@@ -41,12 +41,14 @@ td:first-child, th:first-child  {
 }
 
 .today.old {
-    background-color: rgb(155, 89, 182);
+    //background-color: rgb(250, 193, 90);
+    background-color: rgb(250, 169, 78);
     color: #FFF;
 }
 
 .today.new {
-    background-color: rgb(142, 68, 173);
+    //background-color: rgb(250, 169, 78);
+    background-color: rgb(245, 138, 68);
     color: #FFF;
 }
 
@@ -85,20 +87,20 @@ td:first-child, th:first-child  {
     width: 24px;
 }
 
-.badge-up {
-    background-color: #376900 !important;
-    color: #FFF;
+.fa-plus-circle {
+    color: #376900;
     font-weight: 600;
+    font-size: 16px;
 }
 
-.badge-down {
-    background-color: #a20000 !important;
-    color: #FFF;
+.fa-minus-circle {
+    color: #a20000;
     font-weight: 600;
+    font-size: 16px;
 }
 
-.badge-flat {
-    background-color: #585858 !important;
-    color: #FFF;
+.fa-exchange {
+    color: #585858;
     font-weight: 600;
+    font-size: 16px;
 }

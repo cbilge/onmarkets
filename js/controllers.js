@@ -147,36 +147,20 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
         console.log(act);
         if (date == "yest" || date == "today old") {
             if (act == "uptick") {
-                return "badge-up";
+                return "fa fa-plus-circle fa-fw";
             }
             else if (act == "downtick") {
-                return "badge-down";
+                return "fa fa-minus-circle fa-fw";
             }
             else {
-                return "badge-flat";
+                return "fa fa-exchange fa-fw";
             }
         }
         else if (date == "today new") {
-            return "badge-today";
+            return ""; //today
         }
         else {
-            return "badge-tom";
-        }
-    }
-
-    $scope.clsGlyph = function (dat) {
-        var bdg = $scope.clsBadge(dat);
-        if (bdg == "badge-up") {
-            return "+";
-        }
-        else if (bdg == "badge-down") {
-            return "&ndash;";
-        }
-        else if (bdg == "badge-flat") {
-            return "=";
-        }
-        else {
-            return "";
+            return ""; //tomorrow
         }
     }
 

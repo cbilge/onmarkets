@@ -35,8 +35,7 @@
             <div ng-repeat="data in ecodata.eco" class="panel panel-default dataPanel">
                 <div ng-click="selectData($index)" class="panel-heading {{clsDate(data)}}">
                     <div>{{data.country}} {{data.name}}</div>
-                    <span class="badge text-right {{clsBadge(data)}}" ng-bind-html="clsGlyph(data)"></span>
-                    <div class="text-right">{{data.date | date : 'dd/MM HH:mm': '+0200'}}</div>
+                    <div class="text-right">{{data.date | date : 'dd/MM HH:mm': '+0200'}} <i class="{{clsBadge(data)}}"></i></div>
                 </div>
                 <div ng-show="$index == activeData" class="panel-body">
                     <table class="table table-default">
