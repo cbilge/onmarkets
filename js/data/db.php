@@ -61,7 +61,8 @@ $stmt->bind_param("ssssss", $title, $description, $content, $lead_image_url, $li
 // set parameters and execute
 foreach($feed->channel->item as $item){
 
-    $title = mysqli_escape_string($item->title);
+    $title = $item->title;
+    echo $title;
     $description = mysqli_escape_string($item->description);        
     $link = mysqli_escape_string($item->link);
     $pubDate = mysqli_escape_string($item->pubDate);
