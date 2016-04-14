@@ -91,9 +91,8 @@
 }
 
 #side-reader {
-    position: fixed;
     top: 0px;
-    overflow: auto;
+    overflow-y: auto;
     height: 100%;
     padding-top: 55px;
 }
