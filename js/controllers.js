@@ -186,13 +186,6 @@ onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', 
 
     $scope.selectItem = function (indx) {
         $scope.activeId = indx;
-        console.log($scope.feed.items[indx].title);
-        console.log(indx);
-    }
-
-    $scope.hideRead = function () {
-        $scope.fullRead = false;
-        $scope.activeId = -1;
     }
 
 } ]);

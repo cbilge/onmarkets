@@ -82,7 +82,7 @@
 #full-reader {
     z-index: 9999;
     position: fixed;
-    top: 50px;
+    top: 0px;
     left: 0px;
     height: 100%;
     width: 100%;
@@ -91,15 +91,18 @@
 }
 
 #side-reader {
+    position: fixed;
     top: 0px;
-    overflow-y: auto;
+    overflow: hidden auto;
     height: 100%;
     padding-top: 55px;
 }
 
 #newslist {
-    overflow-y: auto;
-    height: 92%;
+    overflow: hidden auto;
+    height: 100%;
+    position: fixed;
+    top: 0;
 }
 
 .readBtn {
