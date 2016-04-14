@@ -5,18 +5,18 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-12">
 			<ul id="newslist" class="list-group">
-				<li class="list-group-item entry" ng-repeat="item in feed.items" ng-hide="fullRead" ng-click="selectItem($index)" ng-class="{'active' : activeId==$index}"><i class="fa fa-chevron-right fa-fw"></i><p class="entry-title"> {{item.title}}</p></li>
+				<li class="list-group-item entry" ng-repeat="item in feed.items" ng-click="activeId=$index" ng-class="{'active' : activeId==$index}"><i class="fa fa-chevron-right fa-fw"></i><p class="entry-title"> {{item.title}}</p></li>
 			</ul>
 			</div>
 			<div class="col-md-8 hidden-sm hidden-xs reader-wrap" id="side-reader">
                 <div class="reader">
                     <h2>{{feed.items[activeId].title}}</h2>
-                    <p ng-bind-html="feeditems[activeId].title"></p>
+                    <p ng-bind-html="feed.items[activeId].title"></p>
                     <a class="original" target="_blank" ng-href="{{feed.items[activeId].url}}" ng-show="activeText">View Original</a>
                 </div>
             </div>
 		</div>
-        <div class="hidden-lg hidden-xl" id="full-reader" ng-show="fullRead" ng-style="{height: readerHeight}">
+        <div class="hidden-lg hidden-xl" id="full-reader" ng-hide="activeId==-1" ng-style="{height: readerHeight}">
             <div class="reader">
                 <div class="btn-group readBtn">
                     <a class="btn btn-primary" target="_blank" ng-href="{{feed.items[activeId].url}}">View Original</a>
