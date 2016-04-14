@@ -67,13 +67,10 @@ foreach($feed->channel->item as $item){
     $pubDate = $item->pubDate;
     $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
     $result = $conn->query($sel);
-    echo $title;
-    echo $result->num_rows;
     if ($result->num_rows == 0) {
         //get readability only if link not found
         echo $link;
-        $readbl = readability($link);
-        echo $readbl;
+        $readbl = json_decode(readability($link));
         $content = $readbl->content;
         echo $content;
         $lead_image_url = $readbl->lead_image_url;
