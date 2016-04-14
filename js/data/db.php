@@ -74,6 +74,7 @@ foreach($feed->channel->item as $item){
         $content = $readbl->content;
         echo $content;
         $lead_image_url = $readbl->lead_image_url;
+        echo "INSERT INTO bbg_rss (title, description, content, lead_image_url, link, pubDate) VALUES (" . $title . "," . $description . "," . $content . "," . $lead_image_url . "," . $link . "," . $pubDate . ")";
         $stmt->execute();  
     }
 }
