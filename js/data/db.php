@@ -54,7 +54,7 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, content, lead_image_url, link, pubDate) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO bbg_rss ('title', 'description', 'content', 'lead_image_url', 'link', 'pubDate') VALUES (?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssss", $title, $description, $content, $lead_image_url, $link, $pubDate);
 
 
