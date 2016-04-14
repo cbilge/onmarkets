@@ -1,7 +1,6 @@
 <link href="css/news.css" rel="stylesheet">
 <div ng-include="'/views/navbar.html'"></div>
 <div class="main">
-	<div class="container-fluid">
 		<ul id="newslist" class="list-group">
 			<li class="list-group-item entry" ng-repeat="item in feed.items" ng-click="selectItem($index)" ng-class="$index==activeId ? 'active' : ''"><i class="fa fa-chevron-right fa-fw"></i><p class="entry-title"> {{item.title}}</p></li>
 		</ul>
@@ -22,5 +21,4 @@
                 </br>
             </div>        
         </div>
-	</div>
 </div>

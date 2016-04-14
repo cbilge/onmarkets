@@ -55,7 +55,7 @@
     height: 100%;
     width: 100%;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 55px 8px 0px 8px;
 }
 
 .readBtn {
@@ -70,7 +70,7 @@
     left: 33%;
     overflow: hidden auto;
     height: 100%;
-    padding-top: 55px;
+    padding: 55px 8px 0px 8px;
 }
 
 
@@ -81,6 +81,7 @@
     position: fixed;
     top: 0;
     width: 33%;
+    padding: 55px 8px 0px 8px;
 }
 
 @media screen and (max-width: 992px) {
