@@ -71,10 +71,8 @@ foreach($feed->channel->item as $item){
         //get readability only if link not found
         echo $link;
         $readbl = json_decode(readability($link));
-        $content = $readbl->content;
-        echo $content;
+        $content = mysqli_escape_string($readbl->content);
         $lead_image_url = $readbl->lead_image_url;
-        echo "INSERT INTO bbg_rss (title, description, content, lead_image_url, link, pubDate) VALUES (" . $title . "," . $description . "," . $content . "," . $lead_image_url . "," . $link . "," . $pubDate . ")";
         $stmt->execute();  
     }
 }
