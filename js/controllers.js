@@ -186,6 +186,7 @@ onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', 
 
     $scope.selectItem = function (index) {
         $scope.activeId = index;
+        echo index;
         if ($window.innerWidth < 992) {
             $scope.fullRead = true;
             $scope.readerHeight = $window.innerHeight - 50;

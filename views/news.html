@@ -10,20 +10,20 @@
 			</div>
 			<div class="col-md-8 hidden-sm hidden-xs reader-wrap" id="side-reader">
                 <div class="reader">
-                    <h2>{{feed[activeId].title}}</h2>
-                    <p ng-bind-html="feed[activeId].title"></p>
-                    <a class="original" target="_blank" ng-href="{{feed[activeId].url}}" ng-show="activeText">View Original</a>
+                    <h2>{{feed.items[activeId].title}}</h2>
+                    <p ng-bind-html="feeditems[activeId].title"></p>
+                    <a class="original" target="_blank" ng-href="{{feed.items[activeId].url}}" ng-show="activeText">View Original</a>
                 </div>
             </div>
 		</div>
         <div class="hidden-lg hidden-xl" id="full-reader" ng-show="fullRead" ng-style="{height: readerHeight}">
             <div class="reader">
                 <div class="btn-group readBtn">
-                    <a class="btn btn-primary" target="_blank" ng-href="{{feed[activeId].url}}">View Original</a>
-                    <button type="button" class="btn btn-danger" aria-label="Close" ng-click="fullRead=false; activeLink=''">&times;</button>
+                    <a class="btn btn-primary" target="_blank" ng-href="{{feed.items[activeId].url}}">View Original</a>
+                    <button type="button" class="btn btn-danger" aria-label="Close" ng-click="fullRead=false; activeId=-1">&times;</button>
                 </div>
-                <h2>{{feed[activeId].title}}</h2>
-                <p ng-bind-html="feed[activeId].content"></p>
+                <h2>{{feed.items[activeId].title}}</h2>
+                <p ng-bind-html="feed.items[activeId].content"></p>
                 </br>
             </div>        
         </div>
