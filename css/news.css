@@ -1,4 +1,4 @@
-.entry span {
+.entry i {
 	display: inline;
 	font-size: 1.5rem;
 	color: #3498DB;
@@ -92,8 +92,7 @@
 
 #newslist {
     overflow-y: scroll;
-    height: 100%;
-    padding-top: 60px;
+    height: 92%;
 }
 
 .readBtn {

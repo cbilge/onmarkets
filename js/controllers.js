@@ -178,7 +178,7 @@ onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', 
     $scope.selected = 4;
     $scope.themeColor = "#3498DB";
 
-    $scope.activeText = "";
+    $scope.activeId = -1;
     $scope.title = "News";
 
     $scope.feed = bbgRss.get();
