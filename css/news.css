@@ -56,7 +56,6 @@
     width: 100%;
     background-color: #fff;
     padding: 55px 8px 0px 8px;
-    overflow-y: scroll;
 }
 
 .readBtn {
@@ -69,18 +68,21 @@
     position: fixed;
     top: 0px;
     left: 33%;
-    overflow-y: scroll;
     height: 100%;
     padding: 55px 8px 0px 8px;
 }
 
 #newslist {
-    overflow-y: scroll;
     height: 100%;
     position: fixed;
     top: 0;
     width: 33%;
     padding: 55px 8px 0px 8px;
+}
+
+#newslist, #side-reader, #full-reader {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 #newslist::-webkit-scrollbar, #side-reader::-webkit-scrollbar, #full-reader::-webkit-scrollbar {
