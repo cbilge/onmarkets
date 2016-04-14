@@ -27,10 +27,10 @@ h2, h3, h4, .navbar-brand {
 	font-size: 16px !important;
 	z-index: 9999;
     height: 45px !important;
-    margin: 0px, 0px, 5px, 0px !important;
+    margin: 0px 0px 5px 0px !important;
     padding: 2px 0px 2px 0px;
     border: none;
-    vertical-align: middle;
+    display: inline;
 }
 
 .nav-pills li a {
@@ -41,6 +41,7 @@ h2, h3, h4, .navbar-brand {
 
 .nav-pills li {
     border-radius: 4px;
+    display: inline;
 }
 
 .glyphicon {
@@ -62,15 +63,6 @@ h2, h3, h4, .navbar-brand {
 	z-index: 9999;
     border-bottom: 5px solid;
     height: 50px;
-}
-
-.navbar-toggle {
-    margin-top: 6px;
-    margin-right: 8px;
-}
-
-.icon-bar{
-	background-color:#fff !important;
 }
 
 a, a:hover {
