@@ -90,6 +90,14 @@
     padding: 20px;
 }
 
+#side-reader {
+    position: fixed;
+    top: 0px;
+    overflow: auto;
+    height: 100%;
+    padding-top: 55px;
+}
+
 #newslist {
     overflow-y: auto;
     height: 92%;
