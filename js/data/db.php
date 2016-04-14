@@ -62,18 +62,22 @@ $stmt->bind_param("ssssss", $title, $description, $content, $lead_image_url, $li
 foreach($feed->channel->item as $item){
 
     $title = $item->title;
-    echo $title;
-    $description = mysqli_escape_string($item->description);        
-    $link = mysqli_escape_string($item->link);
-    $pubDate = mysqli_escape_string($item->pubDate);
+    echo "title: " . $title;
+    $description = $item->description;        
+    echo "\n Desc: " . $description;
+    $link = $item->link;
+    echo "\n link: " . $link;
+    $pubDate = $item->pubDate;
+    echo "\n Pub: " . $pubDate;
     $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
     $result = $conn->query($sel);
     if ($result->num_rows == 0) {
         //get readability only if link not found
-        echo $link;
         $readbl = json_decode(readability($link));
-        $content = mysqli_escape_string($readbl->content);
-        $lead_image_url = mysqli_escape_string($readbl->lead_image_url);
+        $content = $readbl->content;
+        echo "\n content : ". $content;
+        $lead_image_url = $readbl->lead_image_url;
+        echo "\n lead img: ". $lead_image_url;
         $stmt->execute();  
         printf("Error: %s.\n", $stmt->error);
     }
