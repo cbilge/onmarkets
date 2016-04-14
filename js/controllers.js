@@ -183,14 +183,11 @@ onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', 
 
     $scope.feed = bbgRss.get();
     console.log($scope.feed);
-    console.log($scope.feed.items[2].title);
+
     $scope.selectItem = function (indx) {
         $scope.activeId = indx;
+        console.log($scope.feed.items[indx].title);
         console.log(indx);
-        if ($window.innerWidth < 992) {
-            $scope.fullRead = true;
-            $scope.readerHeight = $window.innerHeight - 50;
-        }
     }
 
     $scope.hideRead = function () {
