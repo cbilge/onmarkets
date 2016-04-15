@@ -39,8 +39,12 @@
     margin-bottom: 8px;
 }
 
-.reader img {
-    max-width: fill-available;
+#side-reader img {
+    max-width: 60%;
+}
+
+#full-reader img {
+    max-width: 90%;
 }
 
 .original {
