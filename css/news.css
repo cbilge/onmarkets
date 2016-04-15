@@ -10,7 +10,7 @@
 	padding-left: 6px;
 }
 
-.entry i.active {
+.entry.active i {
 	color: #fff !important;
 }
 
