@@ -187,6 +187,15 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
         $scope.activeId = indx;
     }
 
+    $scope.showDate = function (pubDate) {
+        var pubdt = new Date(pubDate);
+        console.log(pubDate + ' ' + pubdt);
+        var today = new Date();
+        var diff = today - pubdt;
+        console.log(diff);
+
+    }
+
     $scope.setSource = function (src) {
         $scope.activeId = -1;
         $scope.feed = RSS.get({ source: src });

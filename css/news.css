@@ -18,6 +18,10 @@
      background-color: #3498DB;
 }
 
+.itemDate {
+    color: #ddd;
+}
+
 .list-group {
     margin-bottom: 0px !important;
     border: none !important;
@@ -37,6 +41,11 @@
 .reader p {
     font-size: 1.8rem;
     margin-bottom: 8px;
+}
+
+.reader img {
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 #side-reader img {
