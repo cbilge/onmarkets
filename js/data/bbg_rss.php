@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM bbg_rss ORDER BY updateTime DESC";
+$sql = "SELECT * FROM bbg_rss ORDER BY updateTime DESC LIMIT 200";
 $result = $conn->query($sql);
 $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
