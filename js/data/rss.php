@@ -1,5 +1,8 @@
 <?php
-
+$source = $_GET["source"];
+if ($source == null) {
+    $source = 1;
+}
 $servername = "127.5.102.2";
 $username = "adminn9rBZWt";
 $password = "ys9FljhPItJG";
@@ -13,7 +16,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM bbg_rss ORDER BY updateTime DESC LIMIT 200";
+$sql = "SELECT * FROM feeds WHERE source = " . $source . " ORDER BY updateTime DESC LIMIT 200";
 $result = $conn->query($sql);
 $rows = array();
 while($r = mysqli_fetch_assoc($result)) {

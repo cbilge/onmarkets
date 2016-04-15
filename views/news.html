@@ -17,7 +17,7 @@
 		<div class="hidden-sm hidden-xs reader" id="side-reader">
                 <h2 ng-bind-html="feed.items[activeId].title"></h2>
                 <p ng-bind-html="feed.items[activeId].content"></p>
-                <div class="original"><a target="_blank" ng-href="{{feed.items[activeId].link}}" ng-hide="activeId==-1">View Original</a></div>
+                <a target="_blank" class="original text-center btn" ng-href="{{feed.items[activeId].link}}" ng-hide="activeId==-1">View Original</a>
         </div>
     </div>
 

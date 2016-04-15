@@ -34,11 +34,9 @@ function readability($link) {
       return $contents;
 }
 
-$bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
-$feed = json_decode(Parse($bbg));
-//adminn9rBZWt 
-//ys9FljhPItJG
-//title description link pubdate
+function pushtodb ($feedname, $feedurl){
+$source=$feedname;
+$feed = json_decode(Parse($feedurl));
 
 $servername = "127.5.102.2";
 $username = "adminn9rBZWt";
@@ -54,8 +52,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO bbg_rss (title, description, content, lead_image_url, link, pubDate) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssss", $title, $description, $content, $lead_image_url, $link, $pubDate);
+$stmt = $conn->prepare("INSERT INTO feeds (title, description, content, lead_image_url, link, pubDate, source) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $title, $description, $content, $lead_image_url, $link, $pubDate, $source);
 
 
 // set parameters and execute
@@ -87,5 +85,15 @@ echo "New records created successfully";
 
 $stmt->close();
 $conn->close();
+}
+
+$bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
+$reuters = "http://feeds.reuters.com/reuters/topNews?irpc=69";
+$ft = "http://www.ft.com/rss/home/europe";
+$wsj = "http://online.wsj.com/xml/rss/3_7085.xml";
+pushtodb("bbg", $bbg);
+pushtodb("rtrs", $reuters);
+pushtodb("ft", $ft);
+pushtodb("wsj", $wsj);
 
 ?>

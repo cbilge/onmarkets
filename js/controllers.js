@@ -174,14 +174,14 @@ onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, f
     console.log($scope.data);
 } ]);
 
-onmControllers.controller('NewsController', ['$scope', 'bbgRss', 'Readability', '$window', function ($scope, bbgRss, Readability, $window) {
+onmControllers.controller('NewsController', ['$scope', 'RSS', 'Readability', '$window', function ($scope, bbgRss, Readability, $window) {
     $scope.selected = 4;
     $scope.themeColor = "#3498DB";
 
     $scope.activeId = -1;
     $scope.title = "News";
 
-    $scope.feed = bbgRss.get();
+    $scope.feed = RSS.get({source: "bbg"});
     console.log($scope.feed);
 
     $scope.selectItem = function (indx) {
