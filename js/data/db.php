@@ -58,7 +58,6 @@ $stmt->bind_param("sssssss", $title, $description, $content, $lead_image_url, $l
 
 // set parameters and execute
 foreach($feed->channel->item as $item){
-    if ($source == 'ft') {print_r ($feed);}
     $title = $item->title;
     echo "title: " . $title;
     $description = $item->description;        
@@ -86,7 +85,7 @@ foreach($feed->channel->item as $item){
             $lead_image_url = NULL;
         }
         $stmt->execute();  
-        printf("Error: %s.\n", $stmt->error);
+        //printf("Error: %s.\n", $stmt->error);
     }
 }
 
