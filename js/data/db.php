@@ -35,8 +35,6 @@ function readability($link) {
 }
 
 function pushtodb ($feedname, $feedurl){
-echo "<h1>" . $feedname . "</h1>";
-echo Parse($feedurl);
 $source=$feedname;
 $feed = json_decode(Parse($feedurl));
 
@@ -65,7 +63,7 @@ foreach($feed->channel->item as $item){
     echo "title: " . $title;
     $description = $item->description;        
     echo "\n Desc: " . $description;
-    if ($source == 'rtrs') {
+    if ($source == 'rtrs' || $source == 'ft') {
         $link = $item->guid;
     } else {
     $link = $item->link;
