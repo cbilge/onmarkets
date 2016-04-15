@@ -110,7 +110,7 @@
                 </tr>
                 <tr ng-repeat="data in daily.news">
                     <td>{{data.title}}</td>
-                    <td><a ng-href="//{{data.link}}">Link</a></td>
+                    <td><a ng-href="//{{data.link}}" target="_blank">Link</a></td>
                     <td class="hidden-sm hidden-xs">{{data.date}}</td>
                     <td class="hidden-sm hidden-xs">{{data.time | date : "hh:mm"}}</td>
                 </tr>
