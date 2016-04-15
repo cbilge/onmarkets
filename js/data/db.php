@@ -75,11 +75,16 @@ foreach($feed->channel->item as $item){
     $result = $conn->query($sel);
     if ($result->num_rows == 0) {
         //get readability only if link not found
+        if ($source == 'bbg' || $source == 'rtrs') {
         $readbl = json_decode(readability($link));
         $content = $readbl->content;
         echo "\n content : ". $content;
         $lead_image_url = $readbl->lead_image_url;
         echo "\n lead img: ". $lead_image_url;
+        } else {
+            $content = $description;
+            $lead_image_url = NULL;
+        }
         $stmt->execute();  
         printf("Error: %s.\n", $stmt->error);
     }
