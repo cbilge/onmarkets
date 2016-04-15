@@ -20,6 +20,7 @@
 
 .itemDate {
     color: #ddd;
+    float: right;
 }
 
 .list-group {
