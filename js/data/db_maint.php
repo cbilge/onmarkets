@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$today = date();
+$today = date('Y-m-d');
 $cutdate = date('Y-m-d', strtotime('-3 days', $today));
 echo $cutdate;
 $sql = "SELECT * FROM feeds WHERE updateTime < " . $cutdate;
