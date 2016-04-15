@@ -195,7 +195,7 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
                 $("#srcBtn").addClass("srcBbg").text("Bloomberg");
                 break;
             case 'bi':
-                $("#srcBtn").addClass("srcBi").text("B.I.");
+                $("#srcBtn").addClass("srcBi").text("BI");
                 break;
             case 'ft':
                 $("#srcBtn").addClass("srcFt").text("FT");
