@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$cutdate = date('YYYY-mm-dd',strtotime("-3 days", date()));
+$cutdate = date('Y-m-d',strtotime("-3 days", date()));
 echo $cutdate;
 $sql = "SELECT * FROM feeds WHERE updateTime < " . $cutdate;
 //echo $sql;
