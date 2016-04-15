@@ -1,6 +1,6 @@
 <?php
 function getTable(){
-$html = "http://ec.forexprostools.com/?columns=exc_currency,exc_actual,exc_forecast,exc_previous&countries=32,37,55,72,22,17,93,14,48,10,35,7,53,38,110,11,26,63,4,5&calType=week&timeZone=63&lang=1"
+$html = "http://ec.forexprostools.com/?columns=exc_currency,exc_actual,exc_forecast,exc_previous&countries=32,37,55,72,22,17,93,14,48,10,35,7,53,38,110,11,26,63,4,5&calType=week&timeZone=63&lang=1";
 
 $dom = new DOMDocument;
 $dom->loadHTML($html);
