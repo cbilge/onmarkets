@@ -20,8 +20,8 @@ onmServices.factory('BBG', ['$resource', function ($resource) {
     return $resource("/js/data/bbg_last.php", { ticker: '@ticker' });
 } ]);
 
-onmServices.factory('bbgRss', ['$resource', function ($resource) {
-    return $resource("/js/data/bbg_rss.php", {});
+onmServices.factory('RSS', ['$resource', function ($resource) {
+    return $resource("/js/data/rss.php?source=@source", {source:'@source'});
 } ]);
 
 onmServices.factory('Readability', ['$resource', function ($resource) {

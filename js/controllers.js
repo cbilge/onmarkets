@@ -174,7 +174,7 @@ onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, f
     console.log($scope.data);
 } ]);
 
-onmControllers.controller('NewsController', ['$scope', 'RSS', 'Readability', '$window', function ($scope, bbgRss, Readability, $window) {
+onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', function ($scope, RSS, $window) {
     $scope.selected = 4;
     $scope.themeColor = "#3498DB";
 
