@@ -188,6 +188,7 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
     }
 
     $scope.setSource = function (src) {
+        $scope.activeId = -1;
         $scope.feed = RSS.get({ source: src });
         $("#srcBtn").removeClass("srcBbg").removeClass("srcBi").removeClass("srcFt").removeClass("srcRtrs").removeClass("srcWsj")
         switch (src) {

@@ -39,6 +39,10 @@
     margin-bottom: 8px;
 }
 
+.reader img {
+    max-width: fill-available;
+}
+
 .original {
     padding: 12px 30px 12px 30px;
     border: 1px solid #3498DB;
@@ -104,6 +108,7 @@
 .srcBbg {
     background-color: rgb(40,0,216);
     color: #FFF;
+    font-weight: 600;
 }
 
 .srcBi {
@@ -122,6 +127,7 @@
 .srcRtrs {
     background-color: rgb(255,129,0);
     color: #FFF;
+    font-weight: 600;
 }
 
 .srcWsj {
