@@ -170,7 +170,11 @@ onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, f
     $scope.selected = 3;
     $scope.themeColor = "#C0392B";
     $scope.title = "Markets";
-    $scope.data = fxcm.get();
+    $scope.reload = function () {
+        $scope.data = fxcm.get();
+    }
+    $scope.reload = fxcm.get();
+    $interval($scope.reload, 1000);
     console.log($scope.data);
 } ]);
 
