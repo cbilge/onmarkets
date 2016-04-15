@@ -16,8 +16,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM feeds WHERE source = " . $source . " ORDER BY updateTime DESC LIMIT 200";
-echo $sql;
+$sql = "SELECT * FROM feeds WHERE source = '" . $source . "' ORDER BY updateTime DESC LIMIT 200";
+//echo $sql;
 $result = $conn->query($sql);
 $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
