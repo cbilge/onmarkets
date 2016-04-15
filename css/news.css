@@ -23,7 +23,7 @@
     border: none !important;
 }
 
-.reader h2 h3 h4 {
+.reader h2, .reader h3, .reader h4 {
     padding-left: 0px !important;
     margin-bottom: 3px;
     font-size: 2rem;
