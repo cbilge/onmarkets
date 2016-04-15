@@ -107,6 +107,13 @@
 }
 
 .srcFt {
+    background-color: rgb(0,112,154);
+    color: #222;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.srcFt {
     background-color: rgb(255,241,224);
     color: #222;
     font-weight: 600;

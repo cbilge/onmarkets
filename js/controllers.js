@@ -189,10 +189,13 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
 
     $scope.setSource = function (src) {
         $scope.feed = RSS.get({ source: src });
-        $("#srcBtn").removeClass("srcBbg").removeClass("srcFt").removeClass("srcRtrs").removeClass("srcWsj")
+        $("#srcBtn").removeClass("srcBbg").removeClass("srcBi").removeClass("srcFt").removeClass("srcRtrs").removeClass("srcWsj")
         switch (src) {
             case 'bbg':
                 $("#srcBtn").addClass("srcBbg").text("Bloomberg");
+                break;
+            case 'bi':
+                $("#srcBtn").addClass("srcBi").text("B.I.");
                 break;
             case 'ft':
                 $("#srcBtn").addClass("srcFt").text("FT");
@@ -205,5 +208,6 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
                 break;
         };
     }
+
     $scope.setSource("bbg");
 } ]);

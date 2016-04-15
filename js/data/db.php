@@ -1,13 +1,11 @@
 <?php
 function Parse ($url) {
-
+    ini_set('user_agent', "Godzilla/42.4 (Gabba Gandalf Client 7.3; C128; Z80) Lord of the RSS Weed Edition (KHTML, like Gold Dust Day Gecko) Chrome/97.0.43043.0 Safari/1337.42");
 	$fileContents= file_get_contents($url);
 
 	$fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
 
 	$fileContents = trim(str_replace('"', "'", $fileContents));
-
-    echo $fileContents;
 
 	$simpleXml = simplexml_load_string($fileContents);
 
