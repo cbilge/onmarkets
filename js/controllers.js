@@ -181,8 +181,6 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
     $scope.activeId = -1;
     $scope.title = "News";
 
-    console.log($scope.feed);
-
     $scope.selectItem = function (indx) {
         $scope.activeId = indx;
     }
@@ -193,7 +191,13 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
         var today = new Date();
         var diff = today - pubdt;
         console.log(diff);
-
+        if (diff < 86400000) {
+            var mins = (diff - (diff % 60000)) / 60000;
+            return mins + "min";
+        } else {
+            var days = (diff - (diff % 86400000)) / 60000;
+            return mins + "d";
+        }
     }
 
     $scope.setSource = function (src) {
