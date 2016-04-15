@@ -183,6 +183,8 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
 
     $scope.selectItem = function (indx) {
         $scope.activeId = indx;
+        $("#side-reader").scrollTop(0);
+        $("#full-reader").scrollTop(0);
     }
 
     $scope.showDate = function (pubDate) {
