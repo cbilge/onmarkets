@@ -7,6 +7,8 @@ function Parse ($url) {
 
 	$fileContents = trim(str_replace('"', "'", $fileContents));
 
+    echo $fileContents;
+
 	$simpleXml = simplexml_load_string($fileContents);
 
 	$json = json_encode($simpleXml);
