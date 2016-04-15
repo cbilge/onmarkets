@@ -35,6 +35,7 @@ function readability($link) {
 }
 
 function pushtodb ($feedname, $feedurl){
+echo "<h1>" . $feedname . "</h1>";
 $source=$feedname;
 $feed = json_decode(Parse($feedurl));
 
@@ -93,7 +94,7 @@ $conn->close();
 
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
 $reuters = "http://feeds.reuters.com/reuters/topNews?irpc=69";
-$ft = "http://www.ft.com/rss/home/europe?fmt=xml";
+$ft = "http://www.ft.com/rss/home/europe";
 $wsj = "http://online.wsj.com/xml/rss/3_7085.xml";
 pushtodb("bbg", $bbg);
 pushtodb("rtrs", $reuters);
