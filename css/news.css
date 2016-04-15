@@ -68,7 +68,7 @@
 }
 
 .original:hover {
-    color: #FFF;
+    color: #FFF !important;
     background-color: #3498DB;
 }
 
