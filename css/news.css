@@ -30,11 +30,12 @@
 }
 
 .reader {
-    padding: 10px 8px 5px 8px;
+    padding: 10px 16px 5px 16px;
 }
 
 .reader p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
 }
 
 .original {
@@ -75,7 +76,7 @@
     top: 0px;
     left: 33%;
     height: 100%;
-    padding: 55px 8px 0px 8px;
+    padding: 60px 8px 0px 8px;
 }
 
 #newslist {
@@ -83,7 +84,7 @@
     position: fixed;
     top: 0;
     width: 33%;
-    padding: 55px 8px 0px 8px;
+    padding: 60px 16px 0px 16px;
 }
 
 #newslist, #side-reader, #full-reader {
