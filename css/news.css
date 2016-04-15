@@ -101,3 +101,25 @@
     }
 }
 
+.srcBbg {
+    background-color: rgb(40,0,216);
+    color: #FFF;
+}
+
+.srcFt {
+    background-color: rgb(255,241,224);
+    color: #222;
+    font-weight: 600;
+}
+
+.srcRtrs {
+    background-color: rgb(255,129,0);
+    color: #FFF;
+}
+
+.srcWsj {
+    background-color: #e6e6e6;
+    color: #222;
+    font-weight: 600;
+    font-family: serif;
+}

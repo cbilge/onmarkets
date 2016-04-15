@@ -181,11 +181,29 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
     $scope.activeId = -1;
     $scope.title = "News";
 
-    $scope.feed = RSS.get({source: "bbg"});
     console.log($scope.feed);
 
     $scope.selectItem = function (indx) {
         $scope.activeId = indx;
     }
 
+    $scope.setSource = function (src) {
+        $scope.feed = RSS.get({ source: src });
+        $("#srcBtn").removeClass("srcBbg").removeClass("srcFt").removeClass("srcRtrs").removeClass("srcWsj")
+        switch (src) {
+            case 'bbg':
+                $("#srcBtn").addClass("srcBbg").text("Bloomberg");
+                break;
+            case 'ft':
+                $("#srcBtn").addClass("srcFt").text("FT");
+                break;
+            case 'rtrs':
+                $("#srcBtn").addClass("srcRtrs").text("Reuters");
+                break;
+            case 'wsj':
+                $("#srcBtn").addClass("srcWsj").text("WSJ");
+                break;
+        };
+    }
+    $scope.setSource("bbg");
 } ]);

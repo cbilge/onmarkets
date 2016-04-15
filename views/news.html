@@ -7,6 +7,15 @@
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
                 <input type="text" class="form-control" placeholder="Search" ng-model="search.content">
+                <div class="input-group-btn">
+                    <button type="button" id="srcBtn" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Source <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a ng-click="setSource('bbg')">Bloomberg</a></li>
+                        <li><a ng-click="setSource('ft')">FT</a></li>
+                        <li><a ng-click="setSource('rtrs')">Reuters</a></li>
+                        <li><a ng-click="setSource('wsj')">WSJ</a></li>
+                    </ul>
+                </div><!-- /btn-group -->
             </div>
 			<li class="list-group-item entry" ng-repeat="item in feed.items | filter:search" ng-click="selectItem($index)" ng-class="$index==activeId ? 'active' : ''"><i class="fa fa-chevron-right fa-fw"></i><p class="entry-title"> {{item.title}}</p></li>
 		</ul>

@@ -58,7 +58,7 @@ $stmt->bind_param("sssssss", $title, $description, $content, $lead_image_url, $l
 
 // set parameters and execute
 foreach($feed->channel->item as $item){
-
+    print_r ($feed);
     $title = $item->title;
     echo "title: " . $title;
     $description = $item->description;        
@@ -89,7 +89,7 @@ $conn->close();
 
 $bbg = "http://www.newslookup.com/rss/business/bloomberg.rss";
 $reuters = "http://feeds.reuters.com/reuters/topNews?irpc=69";
-$ft = "http://www.ft.com/rss/home/europe";
+$ft = "http://www.ft.com/rss/home/europe?fmt=xml";
 $wsj = "http://online.wsj.com/xml/rss/3_7085.xml";
 pushtodb("bbg", $bbg);
 pushtodb("rtrs", $reuters);
