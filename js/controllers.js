@@ -191,11 +191,14 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
         var today = new Date();
         var diff = today - pubdt;
         console.log(diff);
-        if (diff < 86400000) {
+        if (diff < 3600000) {
             var mins = (diff - (diff % 60000)) / 60000;
-            return mins + "min";
+            return mins + "m";
+        } else if (diff < 86400000) {
+            var hours = (diff - (diff % 3600000)) / 3600000;
+            return mins + "h";
         } else {
-            var days = (diff - (diff % 86400000)) / 60000;
+            var days = (diff - (diff % 86400000)) / 86400000;
             return mins + "d";
         }
     }
