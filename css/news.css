@@ -25,8 +25,9 @@
 
 .reader h2, .reader h3, .reader h4 {
     padding-left: 0px !important;
-    margin-bottom: 3px;
-    font-size: 2rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 2.2rem;
 }
 
 .reader {
@@ -41,7 +42,7 @@
 .original {
     padding: 12px 30px 12px 30px;
     border: 1px solid #3498DB;
-    color: #3498DB;
+    color: #3498DB !important;
     margin-top: 15px;
     border-radius: 2px;
     margin-left: auto;

@@ -6,7 +6,7 @@
 		<ul id="newslist" class="list-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search" ng-model="search.title">
+                <input type="text" class="form-control" placeholder="Search" ng-model="search.content">
             </div>
 			<li class="list-group-item entry" ng-repeat="item in feed.items | filter:search" ng-click="selectItem($index)" ng-class="$index==activeId ? 'active' : ''"><i class="fa fa-chevron-right fa-fw"></i><p class="entry-title"> {{item.title}}</p></li>
 		</ul>
@@ -17,7 +17,7 @@
 		<div class="hidden-sm hidden-xs reader" id="side-reader">
                 <h2 ng-bind-html="feed.items[activeId].title"></h2>
                 <p ng-bind-html="feed.items[activeId].content"></p>
-                <a class="original" target="_blank" ng-href="feed.items[activeId].link" ng-hide="activeId==-1">View Original</a>
+                <div class="original"><a target="_blank" ng-href="{{feed.items[activeId].link}}" ng-hide="activeId==-1">View Original</a></div>
         </div>
     </div>
 
