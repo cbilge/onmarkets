@@ -1,0 +1,1 @@
+php $OPENSHIFT_REPO_DIR/js/data/db_maint.php

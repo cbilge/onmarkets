@@ -70,7 +70,7 @@ foreach($feed->channel->item as $item){
     echo "\n link: " . $link;
     $pubDate = $item->pubDate;
     echo "\n Pub: " . $pubDate;
-    $sel = "SELECT * FROM bbg_rss WHERE link='" . $link . "'";
+    $sel = "SELECT * FROM feeds WHERE link='" . $link . "'";
     $result = $conn->query($sel);
     if ($result->num_rows == 0) {
         //get readability only if link not found
