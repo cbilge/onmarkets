@@ -58,12 +58,16 @@ $stmt->bind_param("sssssss", $title, $description, $content, $lead_image_url, $l
 
 // set parameters and execute
 foreach($feed->channel->item as $item){
-    print_r ($feed);
+    if ($source == 'ft') {print_r ($feed);}
     $title = $item->title;
     echo "title: " . $title;
     $description = $item->description;        
     echo "\n Desc: " . $description;
+    if ($source == 'rtrs') {
+        $link = $item->guid;
+    } else {
     $link = $item->link;
+    }
     echo "\n link: " . $link;
     $pubDate = $item->pubDate;
     echo "\n Pub: " . $pubDate;
