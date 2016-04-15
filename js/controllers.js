@@ -172,8 +172,9 @@ onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, f
     $scope.title = "Markets";
     $scope.reload = function () {
         $scope.data = fxcm.get();
+
     };
-    $scope.reload;
+    $scope.reload();
     $interval($scope.reload, 1000);
     console.log($scope.data);
 } ]);
