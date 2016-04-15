@@ -40,11 +40,13 @@
 }
 
 #side-reader img {
-    max-width: 60%;
+    max-width: 90%;
+    display: block;
 }
 
 #full-reader img {
     max-width: 90%;
+    display: block;
 }
 
 .original {
