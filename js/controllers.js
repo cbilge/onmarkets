@@ -196,10 +196,10 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
             return mins + "m";
         } else if (diff < 86400000) {
             var hours = (diff - (diff % 3600000)) / 3600000;
-            return mins + "h";
+            return hours + "h";
         } else {
             var days = (diff - (diff % 86400000)) / 86400000;
-            return mins + "d";
+            return days + "d";
         }
     }
 
