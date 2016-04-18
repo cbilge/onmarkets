@@ -16,8 +16,8 @@
                             <th>Name</th>
                             <th>Last</th>
                         </tr>
-                        <tr ng-repeat="rate in data.Rate.slice(0,31)">
-                            <td>{{rate['@attributes'].Symbol}}</td>
+                        <tr ng-repeat="rate in data.Rate.slice(0,31) track by rate.Symbol">
+                            <td>{{rate.Symbol}}</td>
                             <td>{{rate.Bid | number : rate.Bid>20 ? 2 : 4}}</td>
                         </tr>
                     </table>
@@ -28,8 +28,8 @@
                             <th>Name</th>
                             <th>Last</th>
                         </tr>
-                        <tr ng-repeat="rate in data.Rate.slice(31,62)">
-                            <td>{{rate['@attributes'].Symbol}}</td>
+                        <tr ng-repeat="rate in data.Rate.slice(31,62) track by rate.Symbol">
+                            <td>{{rate.Symbol}}</td>
                             <td>{{rate.Bid | number : rate.Bid>20 ? 2 : 4}}</td>
                         </tr>
                     </table>

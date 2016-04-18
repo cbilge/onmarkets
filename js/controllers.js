@@ -166,11 +166,17 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
 
 } ]);
 
-onmControllers.controller('EmController', ['$scope', 'FXCM', function ($scope, fxcm) {
+onmControllers.controller('EmController', ['$scope', 'FXCM', '$interval', '$http', function ($scope, fxcm, $interval, $http) {
     $scope.selected = 3;
     $scope.themeColor = "#C0392B";
     $scope.title = "Markets";
     $scope.data = fxcm.get();
+    $interval(function () {
+        $http.get('/js/data/fxcm.php').then(function (res) {
+            $scope.data = res.data;
+        });
+
+    }, 100);
     console.log($scope.data);
 } ]);
 

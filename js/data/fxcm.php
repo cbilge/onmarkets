@@ -9,6 +9,10 @@ function Parse ($url) {
 
 	$simpleXml = simplexml_load_string($fileContents);
 
+    foreach($simpleXml->children() as $rates) { 
+        $rates->Symbol = $rates['Symbol'];
+    } 
+
 	$json = json_encode($simpleXml);
 
 	return $json;
