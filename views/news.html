@@ -18,7 +18,7 @@
                     </ul>
                 </div><!-- /btn-group -->
             </div>
-			<li class="list-group-item entry" ng-repeat="item in feed.items | filter:search | orderBy : id : reverse track by id" ng-click="selectItem($index)" ng-class="$index==activeId ? 'active' : ''"><i class="fa fa-chevron-right fa-fw"></i><p class="entry-title"> {{item.title}}<span class="itemDate">{{showDate(item.pubDate)}}</span></p></li>
+			<li class="list-group-item entry" ng-repeat="item in feed.items | filter:search | orderBy : item.id : reverse track by item.id" ng-click="selectItem($index)" ng-class="$index==activeId ? 'active' : ''"><i class="fa fa-chevron-right fa-fw"></i><p class="entry-title"> {{item.title}}<span class="itemDate">{{showDate(item.pubDate)}}</span></p></li>
 		</ul>
 	</div>
 
