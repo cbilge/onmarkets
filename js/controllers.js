@@ -198,6 +198,8 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', funct
 
     $scope.selectItem = function (item) {
         $scope.activeItem = item;
+        console.log($scope.activeItem);
+
         this.addClass("read");
         $("#side-reader").scrollTop(0);
         $("#full-reader").scrollTop(0);
@@ -225,6 +227,8 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', funct
         $scope.activeItem = null;
         $scope.activeSource = src;
         $scope.feed = RSS.get({ source: src });
+        console.log($scope.feed);
+        console.log($scope.activeSource);
         $("#srcBtn").removeClass("srcBbg").removeClass("srcBi").removeClass("srcFt").removeClass("srcRtrs").removeClass("srcWsj")
         switch (src) {
             case 'bbg':
