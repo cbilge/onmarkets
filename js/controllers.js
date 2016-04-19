@@ -192,7 +192,6 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
     $scope.themeColor = "#3498DB";
 
     $scope.activeItem = null;
-    $scope.activeSource = "bbg";
 
     $scope.title = "News";
 
@@ -227,8 +226,6 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
         $scope.activeItem = null;
         $scope.activeSource = src;
         $scope.feed = RSS.get({ source: src });
-        console.log($scope.feed);
-        console.log($scope.activeSource);
         $("#srcBtn").removeClass("srcBbg").removeClass("srcBi").removeClass("srcFt").removeClass("srcRtrs").removeClass("srcWsj")
         switch (src) {
             case 'bbg':
@@ -250,7 +247,9 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
     }
 
     var realnews = $interval(function () {
-        $http.get('/js/data/rss.php?source=' . $scope.activeSource).then(function (res) {
+        var src = $scope.activeSource;
+        console.log(src);
+        $http.get('/js/data/rss.php?source='.src).then(function (res) {
             $scope.feed = res.data;
             console.log($scope.feed);
         });
@@ -263,7 +262,6 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
             realnews = undefined;
         }
     });
-
 
     $scope.setSource("bbg");
 } ]);
