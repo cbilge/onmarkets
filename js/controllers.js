@@ -202,6 +202,11 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
         $("#full-reader").scrollTop(0);
     }
 
+    $scope.closeFull = function () {
+        $("#full-reader").scrollTop(0);
+        $scope.activeItem = null;        
+    }
+
     $scope.showDate = function (pubDate) {
         var pubdt = new Date(pubDate);
         console.log(pubDate + ' ' + pubdt);
