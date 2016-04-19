@@ -36,7 +36,7 @@
         <div class="hidden-lg hidden-xl reader" id="full-reader" ng-hide="activeItem==null">
             <div class="btn-group readBtn">
                 <a class="btn btn-primary" target="_blank" ng-href="{{activeItem.link}}"><i class="fa fa-external-link fa-fw"></i></a>
-                <button type="button" class="btn btn-danger" aria-label="Close" ng-click="{activeItem=null; $('#full-reader').scrollTop(0)}"><i class="fa fa-close fa-fw"></i></button>
+                <button type="button" class="btn btn-danger" aria-label="Close" ng-click="closeFull()"><i class="fa fa-close fa-fw"></i></button>
             </div>
             <h2 ng-bind-html="activeItem.title"></h2>
             <p ng-bind-html="activeItem.content"></p>   
