@@ -18,6 +18,14 @@
      background-color: #3498DB;
 }
 
+.entry.read i {
+	color: #bbb;
+}
+
+.entry p.read {
+     color: #bbb;
+}
+
 .itemDate {
     color: #bbb;
     float: right;

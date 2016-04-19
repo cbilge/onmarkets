@@ -198,6 +198,7 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', funct
 
     $scope.selectItem = function (item) {
         $scope.activeItem = item;
+        this.addClass("read");
         $("#side-reader").scrollTop(0);
         $("#full-reader").scrollTop(0);
     }
