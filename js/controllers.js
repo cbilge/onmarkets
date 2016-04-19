@@ -171,24 +171,33 @@ onmControllers.controller('EmController', ['$scope', 'FXCM', '$interval', '$http
     $scope.themeColor = "#C0392B";
     $scope.title = "Markets";
     $scope.data = fxcm.get();
-    $interval(function () {
+    var realtime = $interval(function () {
         $http.get('/js/data/fxcm.php').then(function (res) {
             $scope.data = res.data;
         });
 
     }, 100);
+
+    $scope.$on('$destroy', function() {
+        if (angular.isDefined(realtime)) {
+            $interval.cancel(realtime);
+            realtime = undefined;
+        }
+    });
     console.log($scope.data);
 } ]);
 
-onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', function ($scope, RSS, $window) {
+onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', function ($scope, RSS, $interval) {
     $scope.selected = 4;
     $scope.themeColor = "#3498DB";
 
-    $scope.activeId = -1;
+    $scope.activeItem = null;
+    $scope.activeSource = "bbg";
+
     $scope.title = "News";
 
-    $scope.selectItem = function (indx) {
-        $scope.activeId = indx;
+    $scope.selectItem = function (item) {
+        $scope.activeItem = item;
         $("#side-reader").scrollTop(0);
         $("#full-reader").scrollTop(0);
     }
@@ -212,7 +221,8 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
     }
 
     $scope.setSource = function (src) {
-        $scope.activeId = -1;
+        $scope.activeItem = null;
+        $scope.activeSource = src;
         $scope.feed = RSS.get({ source: src });
         $("#srcBtn").removeClass("srcBbg").removeClass("srcBi").removeClass("srcFt").removeClass("srcRtrs").removeClass("srcWsj")
         switch (src) {
@@ -233,6 +243,18 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$window', functio
                 break;
         };
     }
+
+    var realnews = $interval(function () {
+        $scope.feed = RSS.get({ source: $scope.activeSource });
+    }, 1000);
+
+    $scope.$on('$destroy', function () {
+        if (angular.isDefined(realnews)) {
+            $interval.cancel(realnews);
+            realnews = undefined;
+        }
+    });
+
 
     $scope.setSource("bbg");
 } ]);

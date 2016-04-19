@@ -19,8 +19,9 @@
 }
 
 .itemDate {
-    color: #ddd;
+    color: #bbb;
     float: right;
+    vertical-align: bottom;
 }
 
 .list-group {
@@ -30,8 +31,8 @@
 
 .reader h2, .reader h3, .reader h4 {
     padding-left: 0px !important;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 12px;
+    margin-bottom: 24px;
     font-size: 2.2rem;
 }
 
@@ -41,7 +42,8 @@
 
 .reader p {
     font-size: 1.8rem;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
+    line-height: 1.6em;
 }
 
 .reader img {
@@ -96,8 +98,10 @@
     top: 0px;
     left: 33%;
     height: 100%;
-    padding: 60px 8px 20px 8px;
+    padding: 60px 16px 24px 16px;
+
 }
+
 
 #newslist {
     height: 100%;
