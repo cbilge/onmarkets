@@ -22,8 +22,8 @@
 	color: #bbb;
 }
 
-.entry p.read {
-     color: #bbb;
+.entry.read p {
+     color: #777;
 }
 
 .itemDate {
