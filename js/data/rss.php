@@ -16,7 +16,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM feeds WHERE source = '" . $source . "' ORDER BY id DESC LIMIT 300";
+$sql = "SELECT * FROM feeds WHERE source = '" . $source . "' ORDER BY id DESC LIMIT 200";
 //echo $sql;
 $result = $conn->query($sql);
 $rows = array();

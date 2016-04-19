@@ -253,7 +253,7 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
             $scope.feed = res.data;
         });
 
-    }, 20 * 1000);
+    }, 90 * 1000);
 
     $scope.$on('$destroy', function () {
         if (angular.isDefined(realnews)) {
