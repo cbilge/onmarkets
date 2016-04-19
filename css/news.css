@@ -29,6 +29,7 @@
 .itemDate {
     color: #bbb;
     float: right;
+    display: inline;
     vertical-align: bottom;
 }
 
