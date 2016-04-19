@@ -197,9 +197,7 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
 
     $scope.selectItem = function (item) {
         $scope.activeItem = item;
-        console.log($scope.activeItem);
-
-        this.addClass("read");
+        $(this).addClass("read");
         $("#side-reader").scrollTop(0);
         $("#full-reader").scrollTop(0);
     }
@@ -248,10 +246,8 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
 
     var realnews = $interval(function () {
         var src = $scope.activeSource;
-        console.log(src);
         $http.get('/js/data/rss.php?source='.src).then(function (res) {
             $scope.feed = res.data;
-            console.log($scope.feed);
         });
 
     }, 20 * 1000);
