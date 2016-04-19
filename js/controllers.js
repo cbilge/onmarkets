@@ -209,10 +209,8 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$htt
 
     $scope.showDate = function (pubDate) {
         var pubdt = new Date(pubDate);
-        console.log(pubDate + ' ' + pubdt);
         var today = new Date();
         var diff = today - pubdt;
-        console.log(diff);
         if (diff < 3600000) {
             var mins = (diff - (diff % 60000)) / 60000;
             return mins + "m";
