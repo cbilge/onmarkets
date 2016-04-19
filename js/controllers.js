@@ -187,7 +187,7 @@ onmControllers.controller('EmController', ['$scope', 'FXCM', '$interval', '$http
     console.log($scope.data);
 } ]);
 
-onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', function ($scope, RSS, $interval) {
+onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', '$http', function ($scope, RSS, $interval, $http) {
     $scope.selected = 4;
     $scope.themeColor = "#3498DB";
 
@@ -250,8 +250,12 @@ onmControllers.controller('NewsController', ['$scope', 'RSS', '$interval', funct
     }
 
     var realnews = $interval(function () {
-        $scope.feed = RSS.get({ source: $scope.activeSource });
-    }, 1000);
+        $http.get('/js/data/rss.php?source=' . $scope.activeSource).then(function (res) {
+            $scope.feed = res.data;
+            console.log($scope.feed);
+        });
+
+    }, 20 * 1000);
 
     $scope.$on('$destroy', function () {
         if (angular.isDefined(realnews)) {
