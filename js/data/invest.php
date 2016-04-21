@@ -103,7 +103,7 @@ $stmtup = $conn->prepare("UPDATE eco SET date='?', country='?', name='?', actual
 $stmtup->bind_param("ssssssi", $date, $country, $name, $actual, $survey, $prior, $id);
 
 // set parameters and execute
-foreach($dbData['eco'] as $dbItem){
+foreach($dbData->eco as $dbItem){
 
     $date = $dbItem['date'];
     $country= $dbItem['country'];
