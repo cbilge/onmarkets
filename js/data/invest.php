@@ -33,14 +33,14 @@ function pushtodb($jsonData) {
 
     $stmtup->bind_param("ssi", $actual, $prior, $id);
 
-    foreach($dbData['eco'] as $dbItem){
+    foreach($dbData->eco as $dbItem){
 
-        $date = $dbItem['date'];
-        $country= $dbItem['country'];
-        $name= $dbItem['name'];
-        $actual= $dbItem['actual'];
-        $survey= $dbItem['survey'];
-        $prior= $dbItem['prior'];
+        $date = $dbItem->date;
+        $country= $dbItem->country;
+        $name= $dbItem->name;
+        $actual= $dbItem->actual;
+        $survey= $dbItem->survey;
+        $prior= $dbItem->prior;
 
         var_dump($dbItem);
 
