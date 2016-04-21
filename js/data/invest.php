@@ -42,7 +42,7 @@ function pushtodb($jsonData) {
         $survey= $dbItem->survey;
         $prior= $dbItem->prior;
 
-        var_dump($dbItem);
+        #var_dump($dbItem);
 
         $sel = "SELECT * FROM eco WHERE date='" . $date . "' AND name='" . $name . "'";
         $result = $conn->query($sel);
