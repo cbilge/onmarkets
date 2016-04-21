@@ -92,6 +92,9 @@ foreach($dom->getElementsByTagName('tr') as $row) {
             #echo 'ROW';
             #var_dump($row);
             foreach ($children as $child) { 
+                $key = NULL;
+                $data = NULL;
+
                 #echo 'CHILD';
                 #var_dump($child);
                 #echo "\n\n\n";
