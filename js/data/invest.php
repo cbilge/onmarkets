@@ -97,10 +97,18 @@ if ($conn->connect_error) {
 
 // prepare and bind
 $stmt = $conn->prepare("INSERT INTO eco (date, country, name, actual, survey, prior) VALUES (?, ?, ?, ?, ?, ?)");
+if ($stmt === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+}
+
 $stmt->bind_param("ssssss", $date, $country, $name, $actual, $survey, $prior);
 
-$stmtup = $conn->prepare("UPDATE eco SET date='?', country='?', name='?', actual='?', survey='?', prior='?' WHERE id='?'");
-$stmtup->bind_param("ssssssi", $date, $country, $name, $actual, $survey, $prior, $id);
+$stmtup = $conn->prepare("UPDATE eco SET actual=? prior=? WHERE id=?");
+if ($stmtup === false) {
+  trigger_error($this->mysqli->error, E_USER_ERROR);
+}
+
+$stmtup->bind_param("ssi", $actual, $prior, $id);
 
 // set parameters and execute
 foreach($dbData->eco as $dbItem){
