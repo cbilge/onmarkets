@@ -3,6 +3,64 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
+function pushtodb($jsonData) {
+    $dbData = json_decode($jsonData);
+
+    $servername = "127.5.102.2";
+    $username = "adminn9rBZWt";
+    $password = "ys9FljhPItJG";
+    $dbname = "php";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $stmt = $conn->prepare("INSERT INTO eco (date, country, name, actual, survey, prior) VALUES (?, ?, ?, ?, ?, ?)");
+
+    if ($stmt === false) {
+      trigger_error($this->mysqli->error, E_USER_ERROR);
+    }
+
+    $stmt->bind_param("ssssss", $date, $country, $name, $actual, $survey, $prior);
+
+    $stmtup = $conn->prepare("UPDATE eco SET actual=? prior=? WHERE id=?");
+
+    if ($stmtup === false) {
+      trigger_error($this->mysqli->error, E_USER_ERROR);
+    }
+
+    $stmtup->bind_param("ssi", $actual, $prior, $id);
+
+    foreach($dbData->eco as $dbItem){
+
+        $date = $dbItem['date'];
+        $country= $dbItem['country'];
+        $name= $dbItem['name'];
+        $actual= $dbItem['actual'];
+        $survey= $dbItem['survey'];
+        $prior= $dbItem['prior'];
+
+        var_dump($dbItem);
+
+        $sel = "SELECT * FROM eco WHERE date='" . $date . "' AND name='" . $name . "'";
+        $result = $conn->query($sel);
+        if ($result->num_rows == 0) {
+            $stmt->execute();    
+        } else {
+            $id = $result["id"];
+            $stmtup->execute(); 
+        }
+    }
+
+    #echo "New records created successfully";
+
+    $stmt->close();
+    $conn->close();
+}
+
+
 $url = "http://ec.forexprostools.com/?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=1,2,3&features=datepicker,timezone,timeselector,filters&countries=32,37,55,72,22,17,93,14,48,10,35,7,53,38,110,11,26,63,4,5&calType=day&timeZone=63&lang=1";
 
 
@@ -26,7 +84,7 @@ $dom = new DOMDocument();
 # Iterate over all the <a> tags
 
 foreach($dom->getElementsByTagName('tr') as $row) {
-        # Show the <a href>
+
         #echo $row->getAttribute('event_timestamp');
 
         if ($row->hasAttribute('event_timestamp')) {
@@ -49,8 +107,6 @@ foreach($dom->getElementsByTagName('tr') as $row) {
                         $dataArr[$key] = $data;
                     }
                 }
-
-
             } 
             #print_r($dataArr);
             $dataCollection[] = $dataArr;
@@ -74,68 +130,10 @@ foreach($dataCollection as $orgData) {
 $ecoWrap['eco'] = $ecoTable;
 $jsonData = json_encode($ecoWrap);
 
-$jsonData = str_replace('\u00a0','',json_encode($jsonData);
+$jsonData = str_replace('\u00a0','',$jsonData);
+
 echo $jsonData;
 
-
-//Database!
-
-$dbData = json_decode($jsonData);
-
-$servername = "127.5.102.2";
-$username = "adminn9rBZWt";
-$password = "ys9FljhPItJG";
-$dbname = "php";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// prepare and bind
-$stmt = $conn->prepare("INSERT INTO eco (date, country, name, actual, survey, prior) VALUES (?, ?, ?, ?, ?, ?)");
-if ($stmt === false) {
-  trigger_error($this->mysqli->error, E_USER_ERROR);
-}
-
-$stmt->bind_param("ssssss", $date, $country, $name, $actual, $survey, $prior);
-
-$stmtup = $conn->prepare("UPDATE eco SET actual=? prior=? WHERE id=?");
-if ($stmtup === false) {
-  trigger_error($this->mysqli->error, E_USER_ERROR);
-}
-
-$stmtup->bind_param("ssi", $actual, $prior, $id);
-
-// set parameters and execute
-foreach($dbData->eco as $dbItem){
-
-    $date = $dbItem['date'];
-    $country= $dbItem['country'];
-    $name= $dbItem['name'];
-    $actual= $dbItem['actual'];
-    $survey= $dbItem['survey'];
-    $prior= $dbItem['prior'];
-
-    var_dump($dbItem);
-
-    $sel = "SELECT * FROM eco WHERE date='" . $date . "' AND name='" . $name . "'";
-    $result = $conn->query($sel);
-    if ($result->num_rows > 0) {
-        $id = $result["id"];
-        $stmtup->execute();  
-    } else {
-        $stmt->execute();          
-    }
-}
-
-#echo "New records created successfully";
-
-$stmt->close();
-$conn->close();
-
+pushtodb($jsonData);
 
 ?>
