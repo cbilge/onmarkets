@@ -17,7 +17,12 @@ function pushtodb($jsonData) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $stmt = $conn->prepare("INSERT INTO eco (date, country, name, actual, survey, prior) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO eco ('date', 'country', 'name', 'actual', 'survey', 'prior') VALUES (?, ?, ?, ?, ?, ?)");
+    
+    if ($stmt === false) {
+      echo $conn->error;
+    }
+
 
     $stmt->bind_param("ssssss", $date, $country, $name, $actual, $survey, $prior);
 
