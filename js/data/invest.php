@@ -1,7 +1,7 @@
 <?php
 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
+#ini_set('display_errors', 'On');
+#error_reporting(E_ALL | E_STRICT);
 
 function pushtodb($jsonData) {
     $dbData = json_decode($jsonData);
@@ -14,7 +14,7 @@ function pushtodb($jsonData) {
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die();#"Connection failed: " . $conn->connect_error);
     }
 
     $stmt = $conn->prepare("INSERT INTO eco (date, country, name, actual, survey, prior) VALUES (?, ?, ?, ?, ?, ?)");
@@ -49,7 +49,7 @@ function pushtodb($jsonData) {
         if ($result->num_rows == 0) {
             $stmt->execute();    
         } else {
-            $id = $result["id"];
+            $id = $result->id;
             $stmtup->execute(); 
         }
     }
@@ -60,8 +60,9 @@ function pushtodb($jsonData) {
     $conn->close();
 }
 
+$urlold = "http://ec.forexprostools.com/?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=1,2,3&features=datepicker,timezone,timeselector,filters&countries=32,37,55,72,22,17,93,14,48,10,35,7,53,38,110,11,26,63,4,5&calType=day&timeZone=63&lang=1";
 
-$url = "http://ec.forexprostools.com/?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=1,2,3&features=datepicker,timezone,timeselector,filters&countries=32,37,55,72,22,17,93,14,48,10,35,7,53,38,110,11,26,63,4,5&calType=day&timeZone=63&lang=1";
+$url = "http://ec.forexprostools.com/?columns=exc_currency,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&countries=32,37,55,72,22,17,93,14,48,10,35,7,53,38,110,11,26,63,4,5&calType=week&timeZone=63&lang=1";
 
 
 # Use the Curl extension to query Google and get back a page of results
@@ -82,13 +83,14 @@ $dom = new DOMDocument();
 @$dom->loadHTML($html);
 
 # Iterate over all the <a> tags
-
+$day = '';
 foreach($dom->getElementsByTagName('tr') as $row) {
 
         #echo $row->getAttribute('event_timestamp');
 
         if ($row->hasAttribute('event_timestamp')) {
             $children = $row->childNodes; 
+
             #echo 'ROW';
             #var_dump($row);
             foreach ($children as $child) { 
@@ -108,31 +110,56 @@ foreach($dom->getElementsByTagName('tr') as $row) {
                         $key = $attr->nodeValue;
                         #echo 'key ' . $key;
                         $dataArr[$key] = $data;
-                        echo $key . ' ' . $data;
+                        #echo $key . ' ' . $data;
                     }
                 }
             } 
-            #print_r($dataArr);
             $dataCollection[] = $dataArr;
             $dataArr=[];
+        } else {
+            $children = $row->childNodes;
+            #search for event id
+            $dayrow = 1;
+            foreach ($row->attributes as $attr){
+                if ($attr->nodeValue != NULL) {
+                    $dayrow = 0;
+                }
+            }
+            #echo $dayrow;
+            if ($dayrow == 1){
+                foreach ($children as $child){ 
+                    foreach ($child->attributes as $attr){
+                        if ($attr->name == 'colspan' && $attr->nodeValue == 7) {
+                            $day = $child->nodeValue;
+                            $dataCollection[] = array('day'=>$day);
+                        }
+                    }
+                }
+            }
         }
-
 }
 
 #print_r($ecoTable);
 
-var_dump($dataCollection);
-
+#var_dump($dataCollection);
+$activeDay = '';
 foreach($dataCollection as $orgData) {
-    var_dump($orgData);
-    $keys = array_keys($orgData);
-    $dataPoint['date'] = date('Y-m-d H:i:s',strtotime($orgData[$keys[0]]));
-    $dataPoint['country'] = substr($orgData[$keys[1]],-3);
-    $dataPoint['name'] = $orgData[$keys[3]];
-    $dataPoint['actual'] = $orgData[$keys[4]];
-    $dataPoint['survey'] = $orgData[$keys[5]];
-    $dataPoint['prior'] = $orgData[$keys[6]];
-    $ecoTable[] = $dataPoint;
+    
+    
+    if(count($orgData) > 1){
+        #var_dump($orgData);
+        $keys = array_keys($orgData);
+        $dataPoint['date'] = date('Y-m-d H:i:s',strtotime($activeDay . ' ' . $orgData[$keys[0]]));
+        $dataPoint['country'] = substr($orgData[$keys[1]],-3);
+        $dataPoint['name'] = $orgData[$keys[2]];
+        $dataPoint['actual'] = $orgData[$keys[3]];
+        $dataPoint['survey'] = $orgData[$keys[4]];
+        $dataPoint['prior'] = $orgData[$keys[5]];
+        $ecoTable[] = $dataPoint;
+    } else {
+        $activeDay=$orgData['day'];
+    }
+
 }
 
 $ecoWrap['eco'] = $ecoTable;
