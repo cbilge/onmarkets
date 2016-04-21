@@ -99,7 +99,7 @@ if ($conn->connect_error) {
 $stmt = $conn->prepare("INSERT INTO eco (date, country, name, actual, survey, prior) VALUES (?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssss", $date, $country, $name, $actual, $survey, $prior);
 
-$stmtup = $conn->prepare("UPDATE eco SET date=?, country=?, name=?, actual=?, survey=?, prior=? WHERE id=?");
+$stmtup = $conn->prepare("UPDATE eco SET date='?', country='?', name='?', actual='?', survey='?', prior='?' WHERE id='?'");
 $stmtup->bind_param("ssssssi", $date, $country, $name, $actual, $survey, $prior, $id);
 
 // set parameters and execute
@@ -116,11 +116,11 @@ foreach($dbData['eco'] as $dbItem){
 
     $sel = "SELECT * FROM eco WHERE date='" . $date . "' AND name='" . $name . "'";
     $result = $conn->query($sel);
-    if ($result->num_rows == 0) {
+    if ($result->num_rows > 0) {
         $id = $result["id"];
-        #$stmtup->execute();  
+        $stmtup->execute();  
     } else {
-        #$stmt->execute();          
+        $stmt->execute();          
     }
 }
 
