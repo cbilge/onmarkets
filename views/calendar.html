@@ -13,8 +13,6 @@
                     <th>Name</th>
                     <th>Date</th>
                     <th>Country</th>
-                    <th>Importance</th>
-                    <th>Period</th>
                     <th>Survey</th>
                     <th>Actual</th>
                     <th>Prior</th>
@@ -23,8 +21,6 @@
                     <td>{{data.name}}</td>
                     <td>{{data.date | date : 'dd/MM HH:mm' : '+0300'}}</td>
                     <td>{{data.country}}</td>
-                    <td>{{data.importance}}</td>
-                    <td>{{data.period}}</td>
                     <td>{{data.survey}}</td>
                     <td class="{{clsActual(data)}}">{{data.actual}}</td>
                     <td>{{data.prior}}</td>
