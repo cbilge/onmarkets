@@ -23,10 +23,13 @@ function pushtodb($jsonData) {
       echo $conn->error;
     }
 
-
     $stmt->bind_param("ssssss", $date, $country, $name, $actual, $survey, $prior);
 
-    $stmtup = $conn->prepare("UPDATE eco SET actual=? prior=? WHERE id=?");
+    $stmtup = $conn->prepare("UPDATE eco SET actual=? prior=? WHERE 'id'=?");
+
+    if ($stmtup === false) {
+      echo $conn->error;
+    }
 
     $stmtup->bind_param("ssi", $actual, $prior, $id);
 
