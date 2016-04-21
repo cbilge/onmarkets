@@ -108,18 +108,23 @@ foreach($dom->getElementsByTagName('tr') as $row) {
                         $key = $attr->nodeValue;
                         #echo 'key ' . $key;
                         $dataArr[$key] = $data;
+                        echo $key . ' ' . $data;
                     }
                 }
             } 
             #print_r($dataArr);
             $dataCollection[] = $dataArr;
+            $dataArr=[];
         }
 
 }
 
 #print_r($ecoTable);
 
+var_dump($dataCollection);
+
 foreach($dataCollection as $orgData) {
+    var_dump($orgData);
     $keys = array_keys($orgData);
     $dataPoint['date'] = date('Y-m-d H:i:s',strtotime($orgData[$keys[0]]));
     $dataPoint['country'] = substr($orgData[$keys[1]],-3);
