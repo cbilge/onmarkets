@@ -145,8 +145,7 @@ foreach($dom->getElementsByTagName('tr') as $row) {
 #var_dump($dataCollection);
 $activeDay = '';
 foreach($dataCollection as $orgData) {
-    
-    
+        
     if(count($orgData) > 1){
         #var_dump($orgData);
         $keys = array_keys($orgData);

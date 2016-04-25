@@ -23,6 +23,7 @@ while($r = mysqli_fetch_assoc($result)) {
     $dateStart = strtotime(date_modify($today, '-3 days'));
     $dateEnd= strtotime(date_modify($today, '+3 days'));
 
+
     #echo '$r';
     #var_dump($r);
     echo '$rowTime';
