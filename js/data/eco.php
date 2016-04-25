@@ -20,8 +20,8 @@ $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
     $rowTime = strtotime($r['date']);
     $today = date('U');
-    $dateStart = date_modify($today, '-3 days');
-    $dateEnd= date_modify($today, '+3 days');
+    $dateStart = $today - 60*60*24*4
+    $dateEnd = $today + 60*60*24*3;
 
 
     #echo '$r';
