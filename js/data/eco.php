@@ -27,9 +27,9 @@ while($r = mysqli_fetch_assoc($result)) {
     echo '$today';
     var_dump($today);
     echo 'cond1';
-    echo $rowTime > date_modify($today, '-3 days');
+    echo $rowTime > strtotime(date_modify($today, '-3 days'));
     echo 'cond2';
-    echo $rowTime < date_modify($today, '+3 days');
+    echo $rowTime < strtotime(date_modify($today, '+3 days'));
     if ($rowTime > date_modify($today, '-3 days') && $rowTime < date_modify($today, '+3 days')) {
         $rows[] = $r;    
     }
