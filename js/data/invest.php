@@ -49,7 +49,8 @@ function pushtodb($jsonData) {
         if ($result->num_rows == 0) {
             $stmt->execute();    
         } else {
-            $id = $result->id;
+            $resultRow = $result->fetch_assoc();
+            $id = $resultRow['id'];
             $stmtup->execute(); 
         }
     }
