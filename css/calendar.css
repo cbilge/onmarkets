@@ -46,18 +46,16 @@ td:first-child, th:first-child  {
 
 .today.old {
     //background-color: rgb(250, 193, 90);
-    background-color: rgb(250, 169, 78);
-    color: #FFF;
+    border-left: 5px solid rgb(250, 169, 78);
 }
 
 .today.new {
     //background-color: rgb(250, 169, 78);
-    background-color: rgb(245, 138, 68);
-    color: #FFF;
+    border-left: 5px solid rgb(245, 138, 68);
 }
 
 .yest {
-    background-color: rgb(236, 240, 241) !important;
+    border-left: 5px solid rgb(236, 240, 241);
 }
 
 .label {
