@@ -23,22 +23,7 @@ while($r = mysqli_fetch_assoc($result)) {
     $dateStart = $today - 60*60*24*4;
     $dateEnd = $today + 60*60*24*3;
 
-
-    #echo '$r';
-    #var_dump($r);
-    echo '$rowTime';
-    var_dump($rowTime);
-    echo '$today';
-    var_dump($today);
-    echo 'datestart';
-    var_dump($dateStart);
-    echo 'dateend';
-    var_dump($dateEnd);
-    echo 'cond1';
-    echo $rowTime > $dateStart;
-    echo 'cond2';
-    echo $rowTime < $dateEnd;
-    if ($rowTime > date_modify($today, '-3 days') && $rowTime < date_modify($today, '+3 days')) {
+    if ($rowTime > $dateStart && $rowTime < $dateEnd) {
         $rows[] = $r;    
     }
 }
