@@ -20,10 +20,15 @@ $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
     $rowTime = strtotime($r['date']);
     $today = date();
-    echo $r;
-    echo $rowTime;
-    echo $today;
+    echo '$r';
+    var_dump($r);
+    echo '$rowTime';
+    var_dump($rowTime);
+    echo '$today';
+    var_dump($today);
+    echo 'cond1';
     echo $rowTime > date_modify($today, '-3 days');
+    echo 'cond2';
     echo $rowTime < date_modify($today, '+3 days');
     if ($rowTime > date_modify($today, '-3 days') && $rowTime < date_modify($today, '+3 days')) {
         $rows[] = $r;    
