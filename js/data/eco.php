@@ -19,7 +19,7 @@ $result = $conn->query($sql);
 $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
     $rowTime = strtotime($r['date']);
-    $today = date();
+    $today = date('Y-m-d');
     echo '$r';
     var_dump($r);
     echo '$rowTime';
