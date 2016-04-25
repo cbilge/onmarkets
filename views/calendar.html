@@ -19,7 +19,7 @@
                 </tr>
                 <tr ng-repeat="data in ecodata.eco" class="{{clsDate(data)}}">
                     <td>{{data.name}}</td>
-                    <td>{{data.date | date : 'dd/MM HH:mm' : '+0300'}}</td>
+                    <td>{{data.date | date : 'dd/MM HH:mm'}}</td>
                     <td>{{data.country}}</td>
                     <td>{{data.survey}}</td>
                     <td class="{{clsActual(data)}}">{{data.actual}}</td>
@@ -28,12 +28,12 @@
             </table>
         </div>
         <div class="panel-group hidden-sm hidden-md hidden-lg">
-            <div ng-repeat="data in ecodata.eco" class="panel panel-default dataPanel">
-                <div ng-click="selectData($index)" class="panel-heading {{clsDate(data)}}">
+            <div ng-repeat="data in ecodata.eco" class="panel panel-default dataPanel {{clsDate(data)}}">
+                <div ng-click="selectData($index)" class="panel-heading">
                     <div>{{data.country}} {{data.name}}</div>
                     <div class="text-right">{{data.date | date : 'dd/MM HH:mm': '+0300'}} <i class="{{clsBadge(data)}}"></i></div>
                 </div>
-                <div ng-show="$index == activeData" class="panel-body {{clsDate(data)}}">
+                <div ng-show="$index == activeData" class="panel-body">
                     <table class="table table-default">
                         <tr>
                             <th>Period</th>
