@@ -19,9 +19,9 @@ $result = $conn->query($sql);
 $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
     $rowTime = strtotime($r['date']);
-    $today = date('Y-m-d');
-    $dateStart = strtotime(date_modify($today, '-3 days'));
-    $dateEnd= strtotime(date_modify($today, '+3 days'));
+    $today = date('U');
+    $dateStart = date_modify($today, '-3 days');
+    $dateEnd= date_modify($today, '+3 days');
 
 
     #echo '$r';
