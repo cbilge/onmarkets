@@ -19,7 +19,11 @@ $result = $conn->query($sql);
 $rows = array();
 while($r = mysqli_fetch_assoc($result)) {
     $rowTime = strtotime($r['date']);
-    $today = date('U');
+    $today = strtotime(date('Y-m-d'));
+    $workDay = date('w');
+    if ($workDay = 6 || $workDay = 0 || $workDay = 1) {
+        
+    }
     $dateStart = $today - 60*60*24*4;
     $dateEnd = $today + 60*60*24*3;
 

@@ -13,7 +13,7 @@ onmServices.factory('Overnight', ['$resource', function ($resource) {
 } ]);
 
 onmServices.factory('EcoCal', ['$resource', function ($resource) {
-    return $resource('js/data/eco.txt', {});
+    return $resource('js/data/eco.php', {});
 } ]);
 
 onmServices.factory('BBG', ['$resource', function ($resource) {
