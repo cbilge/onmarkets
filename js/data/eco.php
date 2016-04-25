@@ -21,7 +21,8 @@ while($r = mysqli_fetch_assoc($result)) {
     $rowTime = strtotime($r['date']);
     $today = strtotime(date('Y-m-d'));
     $workDay = date('w');
-    
+    echo $today;
+    echo $workDay;
     #Workday Adjustments
     $toStart = 1;
     $toEnd = 2;
@@ -41,6 +42,9 @@ while($r = mysqli_fetch_assoc($result)) {
 
     $dateStart = $today - 60*60*24*$toStart;
     $dateEnd = $today + 60*60*24*$toEnd;
+
+    echo $dateStart;
+    echo $dateEnd;
 
     if ($rowTime > $dateStart && $rowTime < $dateEnd) {
         $rows[] = $r;    
