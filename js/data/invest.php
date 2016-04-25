@@ -169,6 +169,9 @@ $jsonData = str_replace('\u00a0','',$jsonData);
 
 echo $jsonData;
 
-pushtodb($jsonData);
+$mode = $_GET["mode"];
+if ($mode != 'jsonly') {
+    pushtodb($jsonData);
+}
 
 ?>

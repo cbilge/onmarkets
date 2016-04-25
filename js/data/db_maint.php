@@ -15,6 +15,9 @@ if ($conn->connect_error) {
 $sql = "DELETE FROM feeds WHERE updateTime < timestampadd(day, -2, now())";
 $result = $conn->query($sql);
 
+$sql = "DELETE FROM eco WHERE updateTime < timestampadd(day, -7, now())";
+$result = $conn->query($sql);
+
 $conn->close();
 
 ?>
