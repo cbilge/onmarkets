@@ -122,7 +122,7 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
             var target = Number(dat.survey.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g));
         }
 
-
+        console.log(last + ' ' + target);
         if (last < target) {
             return "downtick";
         }
