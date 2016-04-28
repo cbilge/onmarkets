@@ -82,6 +82,9 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', 'EconomicCalenda
     $scope.ecodata = EcoCal.get();
     $scope.activeData = -1;
 
+    EconomicCalendar.initialize();
+    console.log(EconomicCalendar.eco);
+
     $scope.clsDate = function (dat) {
         var data = new Date(dat.date);
         data.setSeconds(0);
@@ -151,7 +154,6 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', 'EconomicCalenda
     $scope.clsBadge = function (dat) {
         var act = $scope.clsActual(dat);
         var date = $scope.clsDate(dat);
-        console.log(act);
         if (date == "yest" || date == "today old") {
             if (act == "uptick") {
                 return "fa fa-plus-circle fa-fw";
