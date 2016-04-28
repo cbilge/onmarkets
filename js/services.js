@@ -41,12 +41,12 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
 
     var url = 'js/data/eco.php';
 
-    var eco = [];
+    EconomicCalendar.eco = [];
 
     var initialize = function () {
         $http.get(url).then(function (response) {
             for (neweco in response.data.eco) {
-                eco.push(new EconomicData(neweco));
+                EconomicCalendar.eco.push(new EconomicData(neweco));
             }
         });
     };
@@ -54,7 +54,7 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
     var update = function () {
         $http.get(url).then(function (response) {
             for (neweco in response.data.eco) {
-                for (oldeco in eco) {
+                for (oldeco in EconomicCalendar.eco) {
                     if (oldeco.id == neweco.id) {
                         oldeco.update(neweco);
                     }
@@ -65,10 +65,7 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
 
     this.initialize();
 
-    return {
-        eco: eco,
-        url: url
-    };
+    return EconomicCalendar;
 
 } ]);
 
@@ -162,4 +159,6 @@ onmServices.factory('EconomicData', function () {
             return ""; //tomorrow
         }
     }
+
+    return this;
 });
