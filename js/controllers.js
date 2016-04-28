@@ -99,7 +99,7 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
             return "tom";
         }
         else {
-            if (dat.actual == "") {
+            if (dat.actual == null) {
                 return "today new";
             }
             else {
@@ -109,13 +109,13 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
     }
 
     $scope.clsActual = function (dat) {
-        console.log("new number" + dat.actual.match("^\-?[1-9]\d{0,2}(\.\d*)?$") + dat.survey.match(/[0-9]+/g) + dat.prior.match(/[0-9]+/g));
+        console.log("new number" + dat.actual.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g) + dat.survey.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g) + dat.prior.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g));
         var last = dat.actual;
-        if (last == "") {
+        if (last == null) {
             return "";
         }
 
-        if (dat.survey == "") {
+        if (dat.survey == null) {
             var target = dat.prior;
         }
         else {
