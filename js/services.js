@@ -43,7 +43,7 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
 
     EconomicCalendar.eco = [];
 
-    var initialize = function () {
+    EconomicCalendar.initialize = function () {
         $http.get(url).then(function (response) {
             for (neweco in response.data.eco) {
                 EconomicCalendar.eco.push(new EconomicData(neweco));
@@ -51,7 +51,7 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
         });
     };
 
-    var update = function () {
+    EconomicCalendar.update = function () {
         $http.get(url).then(function (response) {
             for (neweco in response.data.eco) {
                 for (oldeco in EconomicCalendar.eco) {
@@ -62,8 +62,6 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
             }
         });
     };
-
-    this.initialize();
 
     return EconomicCalendar;
 
