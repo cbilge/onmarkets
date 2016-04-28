@@ -66,7 +66,8 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
     this.initialize();
 
     return {
-        $get: eco
+        eco: eco,
+        url: url
     };
 
 } ]);
