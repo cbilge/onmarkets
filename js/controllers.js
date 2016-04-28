@@ -81,7 +81,6 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', 'EconomicCalenda
     $scope.title = "Calendar";
     $scope.ecodata = EcoCal.get();
     $scope.activeData = -1;
-    console.log(EconomicCalendar.list());
 
 
     $scope.clsDate = function (dat) {
