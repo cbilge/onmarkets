@@ -70,7 +70,7 @@ onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($htt
 } ]);
 
 
-onmServices.factory('EconomicData', function () {
+onmServices.service('EconomicData', function () {
 
     this.initialize = function (initData) {
         angular.extend(this, initData);
@@ -159,6 +159,4 @@ onmServices.factory('EconomicData', function () {
             return ""; //tomorrow
         }
     }
-
-    return this;
 });
