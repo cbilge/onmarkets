@@ -75,12 +75,14 @@ onmControllers.controller('OnController', ['$scope', 'Overnight', function ($sco
 
 } ]);
 
-onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope, EcoCal) {
+onmControllers.controller('CalController', ['$scope', 'EcoCal', 'EconomicCalendar', function ($scope, EcoCal, EconomicCalendar) {
     $scope.selected = 2;
     $scope.themeColor = "#F39C11";
     $scope.title = "Calendar";
     $scope.ecodata = EcoCal.get();
     $scope.activeData = -1;
+    console.log(EconomicCalendar.list());
+
 
     $scope.clsDate = function (dat) {
         var data = new Date(dat.date);
@@ -99,7 +101,7 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
             return "tom";
         }
         else {
-            if (dat.actual == null) {
+            if (dat.actual == null || dat.actual == '') {
                 return "today new";
             }
             else {
@@ -128,7 +130,6 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
             var target = Number(dat.survey.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g));
         }
 
-        console.log('Last:' + last + ' target: ' + target + ' survey: ' + dat.survey);
         if (last < target) {
             return "downtick";
         }
@@ -148,6 +149,7 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
             $scope.activeData = index;
         }
     }
+
     $scope.clsBadge = function (dat) {
         var act = $scope.clsActual(dat);
         var date = $scope.clsDate(dat);
