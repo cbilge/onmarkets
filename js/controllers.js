@@ -109,6 +109,10 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
     }
 
     $scope.clsActual = function (dat) {
+        console.log("new number");
+        console.log(dat.actual.match(/[0-9]+/g));
+        console.log(dat.survey.match(/[0-9]+/g));
+        console.log(dat.prior.match(/[0-9]+/g));
         var last = dat.actual;
         if (last == "") {
             return "";
