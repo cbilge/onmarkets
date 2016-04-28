@@ -37,7 +37,7 @@ onmServices.factory('FXCM', ['$resource', function ($resource) {
 } ]);
 
 onmServices.service('EconomicCalendar', ['$http', 'EconomicData', function ($http, EconomicData) {
-    var EconomicCalendar = {};
+    var EconomicCalendar = {hello:hello};
 
     var url = 'js/data/eco.php';
 
