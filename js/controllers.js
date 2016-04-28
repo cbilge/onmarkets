@@ -109,17 +109,17 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
     }
 
     $scope.clsActual = function (dat) {
-        console.log("new number" + dat.actual.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g) + dat.survey.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g) + dat.prior.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g));
-        var last = dat.actual;
+        //console.log("new number" + dat.actual.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g) + dat.survey.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g) + dat.prior.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g));
+        var last = dat.actual.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g);
         if (last == null) {
             return "";
         }
 
         if (dat.survey == null) {
-            var target = dat.prior;
+            var target = dat.prior.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g);
         }
         else {
-            var target = dat.survey;
+            var target = dat.survey.match(/(\+|\-|[0-9]|\.)[0-9]*\.*[0-9]*/g);
         }
 
 
