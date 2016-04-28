@@ -99,7 +99,7 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
             return "tom";
         }
         else {
-            if (dat.actual == "-") {
+            if (dat.actual == "") {
                 return "today new";
             }
             else {
@@ -110,11 +110,11 @@ onmControllers.controller('CalController', ['$scope', 'EcoCal', function ($scope
 
     $scope.clsActual = function (dat) {
         var last = dat.actual;
-        if (last == "-") {
+        if (last == "") {
             return "";
         }
 
-        if (dat.survey == "-") {
+        if (dat.survey == "") {
             var target = dat.prior;
         }
         else {

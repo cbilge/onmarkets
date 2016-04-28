@@ -1,3 +1,7 @@
+.panel {
+    max-width: 1200px;
+}
+
 .panel-heading {
     padding: 10px 0px 8px 4px;
 }
